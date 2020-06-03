@@ -13,8 +13,7 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-@Data
-@NoArgsConstructor
+
 @Entity
 @Table(name = "pessoa")
 public class Pessoa implements Serializable{
@@ -43,4 +42,82 @@ public class Pessoa implements Serializable{
     @Column(name = "tipo_sanguineo")
     private String tipo_sanguineo;
 
+	public Integer getPessoaId() {
+		return pessoaId;
+	}
+	
+	public Pessoa(Integer pessoaId, String cpf, String rg, String sexo, String nome, LocalDate data_nascimento,
+			String tipo_sanguineo) {
+		super();
+		this.pessoaId = pessoaId;
+		this.cpf = cpf;
+		this.rg = rg;
+		this.sexo = sexo;
+		this.nome = nome;
+		this.data_nascimento = data_nascimento;
+		this.tipo_sanguineo = tipo_sanguineo;
+	}
+
+	public Pessoa() {
+		
+	}
+	
+	public void setPessoaId(Integer pessoaId) {
+		this.pessoaId = pessoaId;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public String getRg() {
+		return rg;
+	}
+
+	public void setRg(String rg) {
+		this.rg = rg;
+	}
+
+	public String getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public LocalDate getData_nascimento() {
+		return data_nascimento;
+	}
+
+	public void setData_nascimento(LocalDate data_nascimento) {
+		this.data_nascimento = data_nascimento;
+	}
+
+	public String getTipo_sanguineo() {
+		return tipo_sanguineo;
+	}
+
+	public void setTipo_sanguineo(String tipo_sanguineo) {
+		this.tipo_sanguineo = tipo_sanguineo;
+	}
+
+	@Override
+	public String toString() {
+		return "Pessoa [pessoaId=" + pessoaId + ", cpf=" + cpf + ", rg=" + rg + ", sexo=" + sexo + ", nome=" + nome
+				+ ", data_nascimento=" + data_nascimento + ", tipo_sanguineo=" + tipo_sanguineo + "]";
+	}
+	
 }
