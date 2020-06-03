@@ -13,12 +13,11 @@ public class PessoaDAO {
 	public List<Pessoa> getPessoas() {
 		try {
 			session = HibernatesUtil.getSessionFactory().openSession();
-			Query query = session.createQuery("select p from Pessoa p");
+			Query query = session.createQuery("select p from Pessoa p"); //= list
 		    List<Pessoa> pessoas = query.list();
 		    return pessoas;
 		} catch(Exception sqlException) {
             if(null != session.getTransaction()) {
-                System.out.println("\n.......Transaction Is Being Rolled Back.......");
                 session.getTransaction().rollback();
             }
             sqlException.printStackTrace();
@@ -30,19 +29,18 @@ public class PessoaDAO {
         }
 	}
 
-	public Pessoa getPessoa(Integer id) {
+	public Pessoa getPessoa(String cpf) {
 		try {
 			session = HibernatesUtil.getSessionFactory().openSession();
-			Query query = session.createQuery("select p from Pessoa p where p.pessoaId = " + id.toString());
-		    List<Pessoa> pessoas = query.list();
-		    if (pessoas.size() > 0) {
-		    	return pessoas.get(0);
+			Query query = session.createQuery("select p from Pessoa p where p.cpf = " + cpf);
+		    List<Pessoa> pessoa = query.list();
+		    if (pessoa.size() > 0) {
+		    	return pessoa.get(0);
 		    } else {
 		    	return null;
 		    }
 		} catch(Exception sqlException) {
             if(null != session.getTransaction()) {
-                System.out.println("\n.......Transaction Is Being Rolled Back.......");
                 session.getTransaction().rollback();
             }
             sqlException.printStackTrace();
@@ -59,13 +57,10 @@ public class PessoaDAO {
 			session.beginTransaction();
             session.saveOrUpdate(pessoa);
             
-            System.out.println("\n.......Records Saved Successfully To The Database.......\n");
             
-            //Committing The Transactions To The Database
             session.getTransaction().commit();
 		} catch(Exception sqlException) {
             if(null != session.getTransaction()) {
-                System.out.println("\n.......Transaction Is Being Rolled Back.......");
                 session.getTransaction().rollback();
             }
             sqlException.printStackTrace();
@@ -80,16 +75,11 @@ public class PessoaDAO {
 		try {
 			session = HibernatesUtil.getSessionFactory().openSession();
 			session.beginTransaction();
-			
-            // código aqui
+			session.delete(pessoa);
             
-            System.out.println("\n.......Record deleted Successfully To The Database.......\n");
-            
-            //Committing The Transactions To The Database
             session.getTransaction().commit();
 		} catch(Exception sqlException) {
             if(null != session.getTransaction()) {
-                System.out.println("\n.......Transaction Is Being Rolled Back.......");
                 session.getTransaction().rollback();
             }
             sqlException.printStackTrace();
