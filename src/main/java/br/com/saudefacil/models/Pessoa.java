@@ -24,16 +24,16 @@ public class Pessoa implements Serializable{
     @Column(name = "pessoa_id")
     private Integer pessoaId;
  
-    @Column(name = "cpf")
+    @Column(name = "cpf", length = 255)
     private String cpf;
  
-    @Column(name = "rg")
+    @Column(name = "rg", length = 255)
     private String rg;
  
     @Column(name = "sexo")
     private String sexo;
     
-    @Column(name = "nome")
+    @Column(name = "nome", length = 255)
     private String nome;
  
     @Column(name = "data_nascimento")
