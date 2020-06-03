@@ -6,6 +6,7 @@ import java.util.Scanner;
 import br.com.saudefacil.models.Pessoa;
 
 public class PessoaView {
+	
 	public Pessoa criarPessoa() {
 		Scanner leTeclado = new Scanner(System.in);
 		System.out.println("Digite seu nome");
@@ -20,8 +21,7 @@ public class PessoaView {
 		System.out.println("Digite seu sexo");
 		String sexo = leTeclado.next();
 
-		Pessoa pessoa = new Pessoa(null, cpf, rg, sexo, nome, null,
-				null);
+		Pessoa pessoa = new Pessoa(null, cpf, rg, sexo, nome, null, null);
 		return pessoa;
 	}
 }
