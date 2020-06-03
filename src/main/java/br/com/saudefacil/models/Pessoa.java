@@ -1,4 +1,4 @@
-package maven;
+package br.com.saudefacil.models;
 
  
 import java.io.Serializable;

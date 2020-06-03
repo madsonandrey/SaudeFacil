@@ -1,16 +1,20 @@
-package maven;
+package br.com.saudefacil;
 
-import java.util.Date;
+
 import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
 
+import br.com.saudefacil.dao.HibernatesUtil;
+import br.com.saudefacil.dao.PessoaDAO;
+import br.com.saudefacil.models.Pessoa;
+
  
 public class AppMain {
  
     static Pessoa pessoa;
-	static ControllerPessoa controllerPessoa = new ControllerPessoa();
+	static PessoaDAO controllerPessoa = new PessoaDAO();
  
     public static void main(String[] args) {
         System.out.println(".......Hibernate Maven Example.......\n");

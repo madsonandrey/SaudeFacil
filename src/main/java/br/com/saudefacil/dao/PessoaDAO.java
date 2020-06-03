@@ -1,22 +1,14 @@
-package maven;
+package br.com.saudefacil.dao;
 
 import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-public class ControllerPessoa {
+import br.com.saudefacil.models.Pessoa;
+
+public class PessoaDAO {
 	static Session session;
-	
-	/**
-	 * public ou void ou static ou private...
-	 * Tipo do retorno (se não for void)
-	 * nome do método
-	 * ( parametros -  se houver, senão, só () )
-	 * {
-	 *   código
-	 * }
-	 * */
 	
 	public List<Pessoa> getPessoas() {
 		try {
@@ -61,7 +53,7 @@ public class ControllerPessoa {
             }
         }
 	}
-	public void createPessoa(Pessoa pessoa) {
+	public void create(Pessoa pessoa) {
 		try {
 			session = HibernatesUtil.getSessionFactory().openSession();
 			session.beginTransaction();
@@ -84,7 +76,7 @@ public class ControllerPessoa {
         }
 	}
 	
-	public void deletePessoa(Pessoa pessoa) {
+	public void delete(Pessoa pessoa) {
 		try {
 			session = HibernatesUtil.getSessionFactory().openSession();
 			session.beginTransaction();
