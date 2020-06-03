@@ -2,13 +2,13 @@ package br.com.saudefacil.system;
 
 public class SystemData {
 	
-	private String sitemVersion;
+	private String systemVersion;
 
-	public String getSitemVersion() {
-		return sitemVersion;
+	public String getSystemVersion() {
+		return systemVersion;
 	}
 
 	SystemData(){
-		this.sitemVersion = "1.0";
+		this.systemVersion = "1.0";
 	}
 }
