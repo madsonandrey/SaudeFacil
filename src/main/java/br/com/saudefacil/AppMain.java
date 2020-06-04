@@ -13,10 +13,11 @@ public class AppMain {
 	 
     public static void main(String[] args) {
     	HibernatesUtil.getSessionFactory().openSession();
-    	while (true) {
+    	int opcao = -1;
+    	while (opcao != 5) {
 	    	Scanner leTeclado = new Scanner(System.in);
 	    	imprimeMenu();
-	    	int opcao = leTeclado.nextInt();
+	    	opcao = leTeclado.nextInt();
 	    	PessoaController pessoaController = new PessoaController();
 			PessoaView pessoaView = new PessoaView();
 	    	switch(opcao) {
@@ -32,16 +33,24 @@ public class AppMain {
 	    		case 4:
 	    			pessoaView.getListaPessoa();
 	    			break;
-	    			
+	    		case 5:
+	    			System.exit(0);
+	    		default: 
+	    			System.out.println("Opção inválida. Digite uma opção válida.");
+	    		  
 	    	}
     	}
     }
     
     public static void imprimeMenu() {
-    	System.out.println("Selecione uma opÃ§Ã£o");
+    	System.out.println();
+    	System.out.println("Selecione uma opção");
     	System.out.println("[1] Cadastrar paciente");
     	System.out.println("[2] Alterar cadastro de paciente");
     	System.out.println("[3] Desativar paciente");
     	System.out.println("[4] Listar paciente");
+    	System.out.println("[5] Sair do Saúde Fácil");
+
     }
+    
 }

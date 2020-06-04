@@ -11,7 +11,7 @@ public class PessoaController {
 	public void create(Pessoa pessoa) {
 		Pessoa pessoaAuxiliar = pessoaDAO.getPessoa(pessoa.getCpf());
 		if (pessoaAuxiliar != null) {
-			throw new RuntimeException("CPF j√° cadastrado");
+			throw new RuntimeException("CPF j· cadastrado!");
 		}
 		pessoaDAO.create(pessoa);
 	}

@@ -15,9 +15,16 @@ public class PacienteView extends PessoaView{
 		return paciente;
 	}
 	
-	public Paciente desativarCadastro() {
+	//public Paciente desativarCadastro() {
+		//Paciente paciente = new Paciente();
+		//paciente.setPessoa(criarPessoa());
+		//System.out.println("Paciente desativado com sucesso!");
+		//paciente.setStatusPaciente(0);
+		//PacienteController pacienteController = new PacienteController();
+		//pacienteController.update(paciente);
+		//return paciente;
 		
-		return null;
+	
 	}
 	
-}
+//}

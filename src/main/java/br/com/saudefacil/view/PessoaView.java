@@ -28,13 +28,13 @@ public class PessoaView {
 					null);
     		pessoaController.create(pessoa2);
 		} else {
-			System.out.println("Pessoa jÃ¡ existente no cadastro: " + pessoa.getNome());
+			System.out.println("Pessoa já existente no cadastro: " + pessoa.getNome());
 		}
 	}
 	
 	public void atualizarCadastro() {
 
-		System.out.println("O que vocÃª deseja alterar? [1]nome ou [2]sexo");
+		System.out.println("O que você deseja alterar? [1]nome ou [2]sexo");
 		int opcao = leTeclado.nextInt();
 		PessoaController pessoaController = new PessoaController();
 			if(opcao == 1) { 
@@ -46,8 +46,9 @@ public class PessoaView {
 				String nome = leTeclado.next();
 				pessoa.setNome(nome);
 				pessoaController.update(pessoa);
+				System.out.println("Alteração feita com sucesso!");
 		} else {
-			
+			System.out.println("Vai mudar de sexo não!");
 		}
 	}
 	
