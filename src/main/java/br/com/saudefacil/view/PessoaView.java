@@ -12,6 +12,7 @@ public class PessoaView {
 		
 		System.out.println("Digite seu cpf");
 		String cpf = leTeclado.next();
+		validadorCPF(cpf);
 		PessoaController pessoaController = new PessoaController();
 		Pessoa pessoa = pessoaController.getPessoa(cpf);
 		if(pessoa == null) {
@@ -22,8 +23,9 @@ public class PessoaView {
 			System.out.println("Digite seu rg");
 			String rg = leTeclado.next();
 			leTeclado.nextLine();
+			validadorRG(rg);
 			
-			System.out.println("Digite seu sexo");
+			System.out.println("Digite seu sexo [m] | [f]");
 			String sexo = leTeclado.next();
 			leTeclado.nextLine();
 			
@@ -39,13 +41,13 @@ public class PessoaView {
 					tipoSanguineo);
     		pessoaController.create(pessoa2);
 		} else {
-			System.out.println("Pessoa já existente no cadastro: " + pessoa.getNome());
+			System.out.println("Pessoa jï¿½ existente no cadastro: " + pessoa.getNome());
 		}
 	}
 	
 	public void atualizarCadastro() {
 
-		System.out.println("O que você deseja alterar? [1]nome ou [2]sexo");
+		System.out.println("O que vocï¿½ deseja alterar? [1]nome ou [2]sexo");
 		int opcao = leTeclado.nextInt();
 		PessoaController pessoaController = new PessoaController();
 			if(opcao == 1) { 
@@ -61,9 +63,9 @@ public class PessoaView {
 				
 				pessoa.setNome(nome);
 				pessoaController.update(pessoa);
-				System.out.println("Alteração feita com sucesso!");
+				System.out.println("Alteraï¿½ï¿½o feita com sucesso!");
 		} else {
-			System.out.println("Vai mudar de sexo não!");
+			System.out.println("Vai mudar de sexo nï¿½o!");
 		}
 	}
 	
@@ -92,5 +94,21 @@ public class PessoaView {
 			System.out.println("OperaÃ§Ã£o cancelada");
 		}
 	}
-}	
+	
+	public void validadorCPF(String cpf) {
+		String tamanhoCPF = "abcdfghjklo";
+		while(cpf.length() < tamanhoCPF.length()) {
+			System.out.println("CPF invÃ¡lido, digite novamente");
+			cpf = leTeclado.next();
+		}
+	}
+	
+	public void validadorRG(String rg) {
+		String tamanhoRG = "qwertyu";
+		while(rg.length() < tamanhoRG.length()) {
+			System.out.println("RG invÃ¡lido, digite novamente. MÃ­nimo de 7 dÃ­gitos");
+			rg = leTeclado.next();
+		}
+	}
+}
 
