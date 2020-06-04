@@ -8,6 +8,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 
+import br.com.saudefacil.models.Paciente;
 import br.com.saudefacil.models.Pessoa;
 
 
@@ -23,11 +24,12 @@ public class HibernatesUtil {
 				settings.put(Environment.USER, "unit_squadbd"); 
 				settings.put(Environment.PASS, "2020squadbd2020");
 				settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQLDialect"); 
-				settings.put(Environment.SHOW_SQL, "true");
+				settings.put(Environment.SHOW_SQL, "false");
 				settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 				settings.put(Environment.HBM2DDL_AUTO, "update");
 				configuration.setProperties(settings);
 				configuration.addAnnotatedClass(Pessoa.class);
+				configuration.addAnnotatedClass(Paciente.class);
 				ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
 						.applySettings(configuration.getProperties()).build();
 				sessionFactory = configuration.buildSessionFactory(serviceRegistry);

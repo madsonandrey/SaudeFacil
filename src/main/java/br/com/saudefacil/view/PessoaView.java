@@ -1,27 +1,61 @@
 package br.com.saudefacil.view;
 
-import java.time.LocalDate;
+import java.util.List;
 import java.util.Scanner;
 
+import br.com.saudefacil.controllers.PessoaController;
 import br.com.saudefacil.models.Pessoa;
 
 public class PessoaView {
-	
-	public Pessoa criarPessoa() {
-		Scanner leTeclado = new Scanner(System.in);
-		System.out.println("Digite seu nome");
-		String nome = leTeclado.next();
-
-		System.out.println("Digite seu rg");
-		String rg = leTeclado.next();
-
+	Scanner leTeclado = new Scanner(System.in);
+	public void criarPessoa() {
+		
 		System.out.println("Digite seu cpf");
 		String cpf = leTeclado.next();
+		PessoaController pessoaController = new PessoaController();
+		Pessoa pessoa = pessoaController.getPessoa(cpf);
+		if(pessoa == null) {
+			System.out.println("Digite seu nome");
+			String nome = leTeclado.next();
 
-		System.out.println("Digite seu sexo");
-		String sexo = leTeclado.next();
+			System.out.println("Digite seu rg");
+			String rg = leTeclado.next();
 
-		Pessoa pessoa = new Pessoa(null, cpf, rg, sexo, nome, null, null);
-		return pessoa;
+			System.out.println("Digite seu sexo");
+			String sexo = leTeclado.next();
+
+			Pessoa pessoa2 = new Pessoa(null, cpf, rg, sexo, nome, null,
+					null);
+    		pessoaController.create(pessoa2);
+		} else {
+			System.out.println("Pessoa já existente no cadastro: " + pessoa.getNome());
+		}
 	}
-}
+	
+	public void atualizarCadastro() {
+
+		System.out.println("O que você deseja alterar? [1]nome ou [2]sexo");
+		int opcao = leTeclado.nextInt();
+		PessoaController pessoaController = new PessoaController();
+			if(opcao == 1) { 
+				System.out.println("Digite o CPF");
+				String cpf = leTeclado.next();
+				Pessoa pessoa = pessoaController.getPessoa(cpf);
+				System.out.println("Nome cadastrado: " + pessoa.getNome());
+				System.out.println("Digite o novo nome. ");
+				String nome = leTeclado.next();
+				pessoa.setNome(nome);
+				pessoaController.update(pessoa);
+				System.out.println("Alteração feita com sucesso!");
+		} else {
+			System.out.println("Vai mudar de sexo não!");
+		}
+	}
+	
+	public void getListaPessoa() {
+		PessoaController pessoaController = new PessoaController();
+		List<Pessoa> pessoas = pessoaController.getPessoas();
+		System.out.println(pessoas);
+	}
+}	
+

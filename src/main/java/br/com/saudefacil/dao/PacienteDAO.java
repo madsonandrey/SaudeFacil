@@ -5,16 +5,18 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
+import br.com.saudefacil.models.Paciente;
 import br.com.saudefacil.models.Pessoa;
 
-public class PessoaDAO {
-	static Session session;
+public class PacienteDAO {
+static Session session;
 	
-	public List<Pessoa> getPessoas() {
+	public List<Paciente> getPacientes() {
 		try {
 			session = HibernatesUtil.getSessionFactory().openSession();
-			return session.createQuery("from Pessoa").list();
-			 
+			Query query = session.createQuery("select p from Paciente p");
+		    List<Paciente> pacientes = query.list();
+		    return pacientes;
 		} catch(Exception sqlException) {
             if(null != session.getTransaction()) {
                 session.getTransaction().rollback();
@@ -28,34 +30,12 @@ public class PessoaDAO {
         }
 	}
 	
-	public Pessoa getPessoa(String cpf) {
-		try {
-			session = HibernatesUtil.getSessionFactory().openSession();
-			Query query = session.createQuery("select p from Pessoa p where p.cpf = " + cpf);
-		    List<Pessoa> pessoa = query.list();
-		    if (pessoa.size() > 0) {
-		    	return pessoa.get(0);
-		    } else {
-		    	return null;
-		    }
-		} catch(Exception sqlException) {
-            if(null != session.getTransaction()) {
-                session.getTransaction().rollback();
-            }
-            sqlException.printStackTrace();
-            return null;
-        } finally {
-            if(session != null) {
-            	session.close();
-            }
-        }
-	}
-	
-	public void create(Pessoa pessoa) {
+	public void create(Paciente paciente) {
 		try {
 			session = HibernatesUtil.getSessionFactory().openSession();
 			session.beginTransaction();
-            session.save(pessoa);
+            session.save(paciente);
+            
             
             session.getTransaction().commit();
 		} catch(Exception sqlException) {
@@ -69,11 +49,11 @@ public class PessoaDAO {
             }
         }
 	}
-	public void update(Pessoa pessoa) {
+	public void update(Paciente paciente) {
 		try {
 			session = HibernatesUtil.getSessionFactory().openSession();
 			session.beginTransaction();
-            session.update(pessoa);
+            session.update(paciente);
             
             session.getTransaction().commit();
 		} catch(Exception sqlException) {
@@ -88,11 +68,12 @@ public class PessoaDAO {
         }
 	}
 	
-	public void delete(Pessoa pessoa) {
+	
+	public void delete(Paciente paciente) {
 		try {
 			session = HibernatesUtil.getSessionFactory().openSession();
 			session.beginTransaction();
-			session.delete(pessoa);
+			session.delete(paciente);
             
             session.getTransaction().commit();
 		} catch(Exception sqlException) {
