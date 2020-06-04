@@ -13,6 +13,11 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "paciente")
 public class Paciente implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     @Column(name = "id_paciente")
@@ -28,6 +33,7 @@ public class Paciente implements Serializable {
 	public Paciente() {
 		
 	}
+	
 
 	public Integer getPacienteID() {
 		return pacienteID;
