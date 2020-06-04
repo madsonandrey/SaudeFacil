@@ -27,4 +27,8 @@ public class PessoaController {
 	public List<Pessoa> getPessoas() {
 		return pessoaDAO.getPessoas();
 	}
+	
+	public void deletePessoa(Pessoa pessoa) {
+		pessoaDAO.delete(pessoa);
+	}
 }

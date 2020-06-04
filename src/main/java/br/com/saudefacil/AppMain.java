@@ -2,11 +2,8 @@ package br.com.saudefacil;
 
 import java.util.Scanner;
 
-import br.com.saudefacil.controllers.PacienteController;
 import br.com.saudefacil.controllers.PessoaController;
 import br.com.saudefacil.dao.HibernatesUtil;
-import br.com.saudefacil.models.Pessoa;
-import br.com.saudefacil.view.PacienteView;
 import br.com.saudefacil.view.PessoaView;
 
 public class AppMain {
@@ -23,25 +20,24 @@ public class AppMain {
 	    		case 1: 
 		    		pessoaView.criarPessoa();
 		    		break;
-	    		
 	    		case 2: 
 	    			pessoaView.atualizarCadastro();
 	    			break;
 	    		case 3:
+	    			pessoaView.deletarPessoa();
 	    			break;
 	    		case 4:
 	    			pessoaView.getListaPessoa();
 	    			break;
-	    			
 	    	}
     	}
     }
     
     public static void imprimeMenu() {
     	System.out.println("Selecione uma opção");
-    	System.out.println("[1] Cadastrar paciente");
-    	System.out.println("[2] Alterar cadastro de paciente");
-    	System.out.println("[3] Desativar paciente");
-    	System.out.println("[4] Listar paciente");
+    	System.out.println("[1] Cadastrar usuário");
+    	System.out.println("[2] Alterar cadastro de usuário");
+    	System.out.println("[3] Deletar usuário");
+    	System.out.println("[4] Listar usuário");
     }
 }
