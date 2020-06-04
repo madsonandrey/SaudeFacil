@@ -20,6 +20,7 @@ public class AppMain {
 	    	opcao = leTeclado.nextInt();
 	    	PessoaController pessoaController = new PessoaController();
 			PessoaView pessoaView = new PessoaView();
+			PacienteView pacienteView = new PacienteView();
 	    	switch(opcao) {
 	    		case 1: 
 		    		pessoaView.criarPessoa();
@@ -29,12 +30,15 @@ public class AppMain {
 	    			pessoaView.atualizarCadastro();
 	    			break;
 	    		case 3:
+	    			pacienteView.desativarCadastro();
 	    			break;
 	    		case 4:
 	    			pessoaView.getListaPessoa();
 	    			break;
 	    		case 5:
 	    			System.exit(0);
+	    		case 6:
+	    			
 	    		default: 
 	    			System.out.println("Opção inválida. Digite uma opção válida.");
 	    		  

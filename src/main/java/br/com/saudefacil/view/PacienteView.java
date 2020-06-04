@@ -15,16 +15,21 @@ public class PacienteView extends PessoaView{
 		return paciente;
 	}
 	
-	//public Paciente desativarCadastro() {
-		//Paciente paciente = new Paciente();
-		//paciente.setPessoa(criarPessoa());
-		//System.out.println("Paciente desativado com sucesso!");
-		//paciente.setStatusPaciente(0);
-		//PacienteController pacienteController = new PacienteController();
-		//pacienteController.update(paciente);
-		//return paciente;
+	public void desativarCadastro() {
+		//
+		Paciente paciente = new Paciente();
 		
-	
+		System.out.println("informe o id do paciente");
+		Integer idPaciente = leTeclado.nextInt();
+		
+		paciente.setPacienteID(idPaciente);
+		paciente.setStatusPaciente(0);
+
+		 
+		PacienteController pacienteController = new PacienteController();
+		if (paciente.getStatusPaciente() == 0) {
+		pacienteController.desativarPaciente(paciente);
+		}
 	}
 	
-//}
+}

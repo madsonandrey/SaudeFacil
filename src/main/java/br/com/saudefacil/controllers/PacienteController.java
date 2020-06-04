@@ -13,4 +13,8 @@ public class PacienteController {
 	public void update(Paciente paciente) {
 		pacienteDAO.update(paciente);
 	}
+	
+	public void desativarPaciente(Paciente paciente) {
+		pacienteDAO.update(paciente);
+	}
 }
