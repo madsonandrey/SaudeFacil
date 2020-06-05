@@ -2,12 +2,13 @@ package br.com.saudefacil.view;
 
 import java.util.Scanner;
 
+import br.com.saudefacil.controllers.PlanoSaudeController;
 import br.com.saudefacil.models.PlanoSaude;
 
 public class PlanoSaudeView {
 	private Scanner scanner;
 
-	public PlanoSaude criarPlanoSaude() {
+	public void createPlanoSaude() {
 		
 		PlanoSaude planoSaude = new PlanoSaude();
 		
@@ -20,8 +21,9 @@ public class PlanoSaudeView {
 		String descricao = scanner.next();
 		planoSaude.setDescription(descricao);
 		
-		planoSaude.setPlanoId(1);
-		return planoSaude;
+		planoSaude.setStatusPlan(1);
+		PlanoSaudeController planoSaudeController = new PlanoSaudeController();
+		planoSaudeController.validaCreatePlanoSaude(planoSaude);
 	}
 
 }

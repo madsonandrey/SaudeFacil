@@ -1,5 +1,6 @@
 package br.com.saudefacil.models;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,10 +10,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "plano_saude")
-public class PlanoSaude {
+public class PlanoSaude{
     
 	@Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
     @Column(name = "id_plano")
     private Integer planoId;
  
@@ -20,7 +20,7 @@ public class PlanoSaude {
     private String description;
  
     @Column(name = "status_plano")
-    private String statusPlan;
+    private Integer statusPlan;
     
     public PlanoSaude() {
     	
@@ -42,11 +42,11 @@ public class PlanoSaude {
 		this.description = description;
 	}
 
-	public String getStatusPlan() {
+	public Integer getStatusPlan() {
 		return statusPlan;
 	}
 
-	public void setStatusPlan(String statusPlan) {
+	public void setStatusPlan(Integer statusPlan) {
 		this.statusPlan = statusPlan;
 	}
 
@@ -55,7 +55,7 @@ public class PlanoSaude {
 		return "PlanoSaude [planoId=" + planoId + ", description=" + description + ", statusPlan=" + statusPlan + "]";
 	}
 
-	public PlanoSaude(Integer planoId, String description, String statusPlan) {
+	public PlanoSaude(Integer planoId, String description, Integer statusPlan) {
 		//super();
 		this.planoId = planoId;
 		this.description = description;
