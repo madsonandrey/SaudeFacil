@@ -9,11 +9,11 @@ public class TestePlanoSaude {
 		HibernatesUtil.getSessionFactory().openSession();
 			PlanoSaudeView planoSaudeView = new PlanoSaudeView();
 
-			planoSaudeView.createPlanoSaude();
+			//planoSaudeView.createPlanoSaude();
 			
-			planoSaudeView.updatePlanoSaude();
+			//planoSaudeView.updatePlanoSaude();
 			
-			planoSaudeView.desblilitaPlanoSaude();
+			//planoSaudeView.desblilitaPlanoSaude();
 	}
 	
 
