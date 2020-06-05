@@ -17,7 +17,7 @@ public class PlanoSaude{
     private Integer planoId;
  
     @Column(name = "descricao")
-    private String description;
+    private String descricao;
  
     @Column(name = "status_plano")
     private Integer statusPlan;
@@ -35,11 +35,11 @@ public class PlanoSaude{
 	}
 
 	public String getDescription() {
-		return description;
+		return descricao;
 	}
 
 	public void setDescription(String description) {
-		this.description = description;
+		this.descricao = description;
 	}
 
 	public Integer getStatusPlan() {
@@ -52,13 +52,13 @@ public class PlanoSaude{
 
 	@Override
 	public String toString() {
-		return "PlanoSaude [planoId=" + planoId + ", description=" + description + ", statusPlan=" + statusPlan + "]";
+		return "PlanoSaude [planoId=" + planoId + ", description=" + descricao + ", statusPlan=" + statusPlan + "]";
 	}
 
 	public PlanoSaude(Integer planoId, String description, Integer statusPlan) {
 		//super();
 		this.planoId = planoId;
-		this.description = description;
+		this.descricao = description;
 		this.statusPlan = statusPlan;
 	}
     

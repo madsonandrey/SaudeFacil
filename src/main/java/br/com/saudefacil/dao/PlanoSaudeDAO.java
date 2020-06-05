@@ -43,7 +43,7 @@ public class PlanoSaudeDAO {
 		return null;
 	}
 	
-	public void instertPlanoSaude(PlanoSaude planoSaude) {
+	public void create(PlanoSaude planoSaude) {
 		try {
 			session = HibernatesUtil.getSessionFactory().openSession();
 			session.beginTransaction();
@@ -63,11 +63,28 @@ public class PlanoSaudeDAO {
 		}
 	}
 	
-	public void updatePlanoSaude(PlanoSaude planoSaude) {
+	public void update(PlanoSaude planoSaude) {
+		try {
+			session = HibernatesUtil.getSessionFactory().openSession();
+			session.beginTransaction();
+			session.update(planoSaude);
+			session.getTransaction().commit();
+		}catch (Exception sqlException) {
+
+			if (null != session.getTransaction() ) {
+				session.getTransaction().rollback();
+				
+			}
+			sqlException.printStackTrace();
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
 		
 	}
 	
-	public void deletetPlanoSaude() {
+	public void delete() {
 		
 	}
 

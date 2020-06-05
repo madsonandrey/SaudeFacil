@@ -11,7 +11,19 @@ public class PlanoSaudeController {
 		if(null != planoSaude.getPlanoId()) {
 			System.out.println(" Id do Plano: " + planoSaude.getPlanoId());
 		}
-		planoSaudeDAO.instertPlanoSaude(planoSaude);
+		planoSaudeDAO.create(planoSaude);
 		}
+	
+	public boolean validaUpdadePlanoSaude(PlanoSaude planoSaude) {
+
+		PlanoSaudeDAO planoSaudeDAO = new PlanoSaudeDAO();
+		planoSaudeDAO.update(planoSaude);
+		return true;
+	}	
+	public boolean validaDesabilitaPlanoSaude(PlanoSaude planoSaude) {
+		PlanoSaudeDAO planoSaudeDAO = new PlanoSaudeDAO();
+		planoSaudeDAO.update(planoSaude);
+		return true;
+	}
 
 }

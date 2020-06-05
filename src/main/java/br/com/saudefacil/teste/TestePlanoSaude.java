@@ -7,10 +7,13 @@ public class TestePlanoSaude {
 
 	public static void main(String[] args) {
 		HibernatesUtil.getSessionFactory().openSession();
-
 			PlanoSaudeView planoSaudeView = new PlanoSaudeView();
-			
+
 			planoSaudeView.createPlanoSaude();
+			
+			planoSaudeView.updatePlanoSaude();
+			
+			planoSaudeView.desblilitaPlanoSaude();
 	}
 	
 
