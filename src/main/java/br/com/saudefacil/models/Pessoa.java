@@ -1,7 +1,7 @@
 package br.com.saudefacil.models;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,52 +10,47 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 @Entity
 @Table(name = "pessoa")
 public class Pessoa implements Serializable{
-	
 	
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     @Column(name = "pessoa_id")
     private Integer pessoaId;
  
-    @Column(name = "cpf", length = 255)
+    @Column(name = "cpf", columnDefinition="VARCHAR(200)")
     private String cpf;
  
-    @Column(name = "rg", length = 255)
+    @Column(name = "rg", columnDefinition = "VARCHAR(200)")
     private String rg;
  
     @Column(name = "sexo")
     private String sexo;
     
-    @Column(name = "nome", length = 255)
+    @Column(name = "nome", columnDefinition = "VARCHAR(200)")
     private String nome;
  
     @Column(name = "data_nascimento")
-    private LocalDate data_nascimento;
+    private Date dataNascimento;
     
     @Column(name = "tipo_sanguineo")
-    private String tipo_sanguineo;
+    private String tipoSanguineo;
 
 	public Integer getPessoaId() {
 		return pessoaId;
 	}
 	
-	public Pessoa(Integer pessoaId, String cpf, String rg, String sexo, String nome, LocalDate data_nascimento,
-			String tipo_sanguineo) {
+	public Pessoa(Integer pessoaId, String cpf, String rg, String sexo, String nome, Date dataNascimento,
+			String tipoSanguineo) {
 		super();
 		this.pessoaId = pessoaId;
 		this.cpf = cpf;
 		this.rg = rg;
 		this.sexo = sexo;
 		this.nome = nome;
-		this.data_nascimento = data_nascimento;
-		this.tipo_sanguineo = tipo_sanguineo;
+		this.dataNascimento = dataNascimento;
+		this.tipoSanguineo = tipoSanguineo;
 	}
 
 	public Pessoa() {
@@ -98,26 +93,26 @@ public class Pessoa implements Serializable{
 		this.nome = nome;
 	}
 
-	public LocalDate getData_nascimento() {
-		return data_nascimento;
+	public Date getDataNascimento() {
+		return dataNascimento;
 	}
 
-	public void setData_nascimento(LocalDate data_nascimento) {
-		this.data_nascimento = data_nascimento;
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 
-	public String getTipo_sanguineo() {
-		return tipo_sanguineo;
+	public String getTipoSanguineo() {
+		return tipoSanguineo;
 	}
 
-	public void setTipo_sanguineo(String tipo_sanguineo) {
-		this.tipo_sanguineo = tipo_sanguineo;
+	public void setTipoSanguineo(String tipoSanguineo) {
+		this.tipoSanguineo = tipoSanguineo;
 	}
 
 	@Override
 	public String toString() {
 		return "Pessoa [pessoaId=" + pessoaId + ", cpf=" + cpf + ", rg=" + rg + ", sexo=" + sexo + ", nome=" + nome
-				+ ", data_nascimento=" + data_nascimento + ", tipo_sanguineo=" + tipo_sanguineo + "]";
+				+ ", dataNascimento=" + dataNascimento + ", tipoSanguineo=" + tipoSanguineo + "]";
 	}
 	
 }
