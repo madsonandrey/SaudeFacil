@@ -13,7 +13,7 @@ public class TestePlanoSaude {
 			
 			//planoSaudeView.updatePlanoSaude();
 			
-			//planoSaudeView.desblilitaPlanoSaude();
+			planoSaudeView.desabilitaPlanoSaude();
 	}
 	
 

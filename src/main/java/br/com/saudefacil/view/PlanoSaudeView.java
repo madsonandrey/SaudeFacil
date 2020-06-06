@@ -49,7 +49,7 @@ public class PlanoSaudeView {
 		}
 	}
 
-	public void desblilitaPlanoSaude() {
+	public void desabilitaPlanoSaude() {
 		
 		PlanoSaude planoSaude = new PlanoSaude();
 		PlanoSaudeController planoSaudeController = new PlanoSaudeController();
