@@ -16,7 +16,7 @@ public class PacienteView extends PessoaView{
 	}
 	
 	public void desativarCadastro() {
-		//
+		
 		Paciente paciente = new Paciente();
 		
 		System.out.println("informe o id do paciente");

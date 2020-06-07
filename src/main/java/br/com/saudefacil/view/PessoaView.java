@@ -1,5 +1,9 @@
 package br.com.saudefacil.view;
 
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Scanner;
 
@@ -8,11 +12,11 @@ import br.com.saudefacil.models.Pessoa;
 
 public class PessoaView {
 	Scanner leTeclado = new Scanner(System.in);
+	
 	public void criarPessoa() {
 		
 		System.out.println("Digite seu cpf");
 		String cpf = leTeclado.next();
-		validadorCPF(cpf);
 		PessoaController pessoaController = new PessoaController();
 		Pessoa pessoa = pessoaController.getPessoa(cpf);
 		if(pessoa == null) {
@@ -23,7 +27,6 @@ public class PessoaView {
 			System.out.println("Digite seu rg");
 			String rg = leTeclado.next();
 			leTeclado.nextLine();
-			validadorRG(rg);
 			
 			System.out.println("Digite seu sexo [m] | [f]");
 			String sexo = leTeclado.next();
@@ -32,14 +35,24 @@ public class PessoaView {
 			System.out.println("Digite seu tipo sanguíneo");
 			String tipoSanguineo = leTeclado.next();
 			
-			//System.out.println("Digite sua data de nascimento (dd/mm/aaaa)");
-			//String data = leTeclado.next();
-			//DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy"); 
-			//LocalDate date = LocalDate.parse(data, dateFormat);
-	        
-			Pessoa pessoa2 = new Pessoa(null, cpf, rg, sexo, nome, null,
-					tipoSanguineo);
-    		pessoaController.create(pessoa2);
+			System.out.println("Digite sua data de nascimento (dd/mm/aaaa)");
+			String data = leTeclado.next();
+			
+			DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+			Date date = null;
+			try {
+				date = formatter.parse(data); 
+			} catch (ParseException e) {
+				System.out.println("Data inválida");
+				return;
+			}
+	        try {
+				Pessoa pessoa2 = new Pessoa(null, cpf, rg, sexo, nome, date,
+						tipoSanguineo);
+	    		pessoaController.create(pessoa2);
+	        } catch(Exception erro) {
+	        	System.out.println("Erro ao cadastrar pessoa: " + erro.getMessage());
+	        }
 		} else {
 			System.out.println("Pessoa j� existente no cadastro: " + pessoa.getNome());
 		}
@@ -72,11 +85,9 @@ public class PessoaView {
 	public void getListaPessoa() {
 		PessoaController pessoaController = new PessoaController();
 		List<Pessoa> pessoas = pessoaController.getPessoas();
-		pessoas.forEach(pessoa->
-			System.out.println(pessoa)		
-		);
+		pessoas.forEach(System.out::println);
 	}
-	
+
 	public void deletarPessoa() {
 		PessoaController pessoaController = new PessoaController();
 		Pessoa pessoa = new Pessoa();
@@ -92,22 +103,6 @@ public class PessoaView {
 			System.out.println("Usuário deletado");
 		} else {
 			System.out.println("Operação cancelada");
-		}
-	}
-	
-	public void validadorCPF(String cpf) {
-		String tamanhoCPF = "abcdfghjklo";
-		while(cpf.length() < tamanhoCPF.length()) {
-			System.out.println("CPF inválido, digite novamente");
-			cpf = leTeclado.next();
-		}
-	}
-	
-	public void validadorRG(String rg) {
-		String tamanhoRG = "qwertyu";
-		while(rg.length() < tamanhoRG.length()) {
-			System.out.println("RG inválido, digite novamente. Mínimo de 7 dígitos");
-			rg = leTeclado.next();
 		}
 	}
 }
