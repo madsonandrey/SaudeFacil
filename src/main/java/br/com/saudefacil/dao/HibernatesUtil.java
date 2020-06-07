@@ -10,6 +10,7 @@ import org.hibernate.service.ServiceRegistry;
 
 import br.com.saudefacil.models.Paciente;
 import br.com.saudefacil.models.Pessoa;
+import br.com.saudefacil.models.PlanoSaude;
 
 
 public class HibernatesUtil {
@@ -30,6 +31,7 @@ public class HibernatesUtil {
 				configuration.setProperties(settings);
 				configuration.addAnnotatedClass(Pessoa.class);
 				configuration.addAnnotatedClass(Paciente.class);
+				configuration.addAnnotatedClass(PlanoSaude.class);
 				ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
 						.applySettings(configuration.getProperties()).build();
 				sessionFactory = configuration.buildSessionFactory(serviceRegistry);
