@@ -1,31 +1,31 @@
--- Endereços das pessoas
-INSERT INTO enderecos 
-(endereco_id, logradouro, numero, complemento, cep, bairro, cidade, uf, fk_pessoa_pessoa_id)
-VALUES
-(2021, 'Rua A', '110', 'AP-3210', 53110081, 'Sitio Novo', 'PB CIDADE', 'PB', 1001),
-(2022, 'Rua B', '120', 'AP-3211', 50082311, 'Sitio Novo', 'CIDAE BA', 'BA', 2002),
-(2023, 'AV. DO G', '106', 'AP-3821', 50089311, 'ALREIA VELHA', 'PIPA', 'PE', 3003),
-(2024, 'Rua C', '100', 'AP-3212', 53110083, 'Sitio Novo', 'RO CIDADE', 'RO', 4004),
-(2025, 'ALAMEDA XYZ', '910', 'AP-3216', 53110087, 'Sitio Novo', 'MONGI', 'PE', 5005),
-(2026, 'Rua D', '110', 'AP-3231', 53008411, 'Sitio Novo', 'CIDADE PE', 'PE', 6006),
-(2027, 'Rua E', '130', 'AP-3421', 00855311, 'Sitio Novo', 'RECIFE', 'PE', 7007),
-(2028, 'Rua F', '100', 'AP-5321', 10053186, 'Sitio Novo', 'BAIRRO NOVO', 'PE', 8008),
-(2029, 'PRAÇA XYZ', '150', 'AP-3271', 53187100, 'NOVA ALAMEDA', 'PIPA', 'PE', 9009),
-(2030, 'VIELA DO R', '510', 'AP-9321', 31105090, 'ABREU E LIMA', 'JABOATAO', 'PE', 1010);
-GO -- Para insert de endereço de pessoas sempre passar o id da pessoa no último parametro
+-- CLINICAS ENDEREÃ‡OS
 
--- Endereços das clínicas
 INSERT INTO enderecos 
-(endereco_id, logradouro, numero, complemento, cep, bairro, cidade, uf, fk_pessoa_pessoa_id)
+(logradouro, numero, complemento, cep, bairro, cidade, uf, fk_clinica_clinica_id)
 VALUES
-(2235, 'Rua Z', '110', 'AP-3210', 53110081, 'Sitio Novo', 'PB CIDADE', 'PB', null),
-(2514, 'Rua xX', '120', 'AP-3211', 53110082, 'Sitio Novo', 'CIDAE BA', 'BA', null),
-(5485, 'AV. DO T', '106', 'AP-3821', 53110089, 'ALREIA VELHA', 'PIPA', 'PE', null),
-(4518, 'Rua C', '100', 'AP-3212', 53110083, 'Sitio Novo', 'RO CIDADE', 'RO', null),
-(4512, 'DISNEY XYZ', '910', 'AP-3216', 53110087, 'Sitio Novo', 'MONGI', 'PE', null),
-(5541, 'Rua H', '110', 'AP-3231', 53110084, 'Sitio Novo', 'CIDADE PE', 'PE', null),
-(8959, 'Rua P', '130', 'AP-3421', 53110085, 'Sitio Novo', 'RECIFE', 'PE', null),
-(2356, 'Rua R', '100', 'AP-5321', 53110086, 'Sitio Novo', 'BAIRRO NOVO', 'PE', null),
-(1452, 'PRAÇA XYZ', '150', 'AP-3271', 53110087, 'NOVA ALAMEDA', 'PIPA', 'PE', null),
-(2346, 'VILA DO V', '510', 'AP-9321', 53110090, 'ABREU E LIMA', 'JABOATAO', 'PE', null);
-GO -- Para insert de clinicas passe o ultimo valor como null
+('Rua Um', '110', 'sala-3210', 53110081, 'Recife', 'Casa amarela', 'PE', 1),
+('Rua Dois', '120', 'sala-3211', 50082311, 'Recife', 'Corrego buruti', 'PE', 2),
+('AV. Tres', '106', '3821', 50089311, 'Recife', 'Recife', 'PE', 3),
+('Rua Quatro', '100', '3212', 53110083, 'Jaboatao', 'Vila velha', 'PE', 4),
+('Rua cinco', '910', '3216', 53110087, 'Olinda', 'Sitio novo', 'PE', 5),
+('Rua seis', '110', '3231', 53008411, 'Olinda', 'Rio Doce', 'PE', 6),
+('Rua sete', '130', '3421', 00855311, 'Paulista', 'Janga', 'PE', 7),
+('Rua oito', '100', '5321', 10053186, 'Jaboatao', 'Prazeres', 'PE', 8),
+('PRAÃ‡A nove', '150', '3271', 53187100, 'Recife', 'Boa viagem', 'PE', 9),
+('rua dez', '510', '9321', 31105090, 'ABREU E LIMA', 'Ilha do leite', 'PE', 10);
+
+-- PROFISSIONAL ENDEREÃ‡OS
+
+INSERT INTO enderecos 
+(logradouro, numero, complemento, cep, bairro, cidade, uf, fk_pessoa_pessoa_id)
+VALUES
+('Rua onze', '110', 'sala-3210', 53110081, 'Recife', 'Casa amarela', 'PE', 11),
+('Rua doze', '120', 'sala-3211', 50082311, 'Recife', 'Corrego buruti', 'PE', 12),
+('AV. treze', '106', '3821', 50089311, 'Recife', 'Recife', 'PE', 13),
+('Rua quatorze', '100', '3212', 53110083, 'Jaboatao', 'Vila velha', 'PE', 14),
+('Rua quinze', '910', '3216', 53110087, 'Olinda', 'Sitio novo', 'PE', 15),
+('Rua desesseis', '110', '3231', 53008411, 'Olinda', 'Rio Doce', 'PE', 16),
+('Rua desessete', '130', '3421', 00855311, 'Paulista', 'Janga', 'PE', 17),
+('Rua dezoito', '100', '5321', 10053186, 'Jaboatao', 'Prazeres', 'PE', 18),
+('PRAÃ‡A dezenove', '150', '3271', 53187100, 'Recife', 'Boa viagem', 'PE', 19),
+('rua vinte', '510', '9321', 31105090, 'ABREU E LIMA', 'Ilha do leite', 'PE', 20);
