@@ -13,7 +13,7 @@ import br.com.saudefacil.models.Pessoa;
 public class PessoaView {
 	Scanner leTeclado = new Scanner(System.in);
 	
-	public void criarPessoa() {
+	public Pessoa criarPessoa() {
 		
 		System.out.println("Digite seu cpf");
 		String cpf = leTeclado.next();
@@ -44,17 +44,20 @@ public class PessoaView {
 				date = formatter.parse(data); 
 			} catch (ParseException e) {
 				System.out.println("Data inválida");
-				return;
+				return null;
 			}
 	        try {
 				Pessoa pessoa2 = new Pessoa(null, cpf, rg, sexo, nome, date,
 						tipoSanguineo);
 	    		pessoaController.create(pessoa2);
+	    		return pessoa2;
 	        } catch(Exception erro) {
 	        	System.out.println("Erro ao cadastrar pessoa: " + erro.getMessage());
+	        	return null;
 	        }
 		} else {
 			System.out.println("Pessoa j� existente no cadastro: " + pessoa.getNome());
+			return pessoa;
 		}
 	}
 	

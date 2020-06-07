@@ -19,7 +19,7 @@ public class AppMain {
 			PacienteView pacienteView = new PacienteView();
 			switch (opcao) {
 			case 1:
-				pessoaView.criarPessoa();
+				pacienteView.criarPaciente();
 				break;
 
 			case 2:
@@ -29,25 +29,25 @@ public class AppMain {
 				pacienteView.desativarCadastro();
 				break;
 			case 4:
-				pessoaView.getListaPessoa();
+				pacienteView.getListaPaciente();
 				break;
 			case 5:
 				System.exit(0);
+				
 			default:
-				System.out.println("Opção inválida. Digite uma opção válida.");
-
+				System.out.println("Opï¿½ï¿½o invï¿½lida. Digite uma opï¿½ï¿½o vï¿½lida.");
 			}
 		}
 	}
 
 	public static void imprimeMenu() {
 		System.out.println();
-		System.out.println("Selecione uma opção");
+		System.out.println("Selecione uma opï¿½ï¿½o");
 		System.out.println("[1] Cadastrar paciente");
 		System.out.println("[2] Alterar cadastro de paciente");
 		System.out.println("[3] Desativar paciente");
 		System.out.println("[4] Listar paciente");
-		System.out.println("[5] Sair do Saúde Fácil");
+		System.out.println("[5] Sair do Saï¿½de Fï¿½cil");
 
 	}
 

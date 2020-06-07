@@ -1,5 +1,7 @@
 package br.com.saudefacil.controllers;
 
+import java.util.List;
+
 import br.com.saudefacil.dao.PacienteDAO;
 import br.com.saudefacil.models.Paciente;
 
@@ -16,5 +18,13 @@ public class PacienteController {
 	
 	public void desativarPaciente(Paciente paciente) {
 		pacienteDAO.update(paciente);
+	}
+	
+	public Paciente getPaciente(String cpf) {
+		return pacienteDAO.getPaciente(cpf);
+	}
+	
+	public List<Paciente> getPacientes() {
+		return pacienteDAO.getPacientes();
 	}
 }

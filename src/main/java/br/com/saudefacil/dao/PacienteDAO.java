@@ -30,6 +30,30 @@ static Session session;
         }
 	}
 	
+	public Paciente getPaciente(String cpf) {
+		try {
+			session = HibernatesUtil.getSessionFactory().openSession();
+			Query query = session.createQuery("select p from Paciente p where p.pessoa.cpf = " + cpf);
+		    List<Paciente> paciente = query.list();
+		    if (paciente.size() > 0) {
+		    	return paciente.get(0);
+		    } else {
+		    	return null;
+		    }
+		} catch(Exception sqlException) {
+            if(null != session.getTransaction()) {
+                session.getTransaction().rollback();
+            }
+            sqlException.printStackTrace();
+            return null;
+        } finally {
+            if(session != null) {
+            	session.close();
+            	}
+        	}
+		}
+	
+	
 	public void create(Paciente paciente) {
 		try {
 			session = HibernatesUtil.getSessionFactory().openSession();
