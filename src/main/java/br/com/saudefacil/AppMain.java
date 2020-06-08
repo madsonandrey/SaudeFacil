@@ -35,7 +35,7 @@ public class AppMain {
 				System.exit(0);
 				
 			default:
-				System.out.println("Op��o inv�lida. Digite uma op��o v�lida.");
+				System.out.println("Opção inválida. Digite uma opção válida.");
 			}
 		}
 	}
