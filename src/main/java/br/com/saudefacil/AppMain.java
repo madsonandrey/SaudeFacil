@@ -34,10 +34,10 @@ public class AppMain {
     }
     
     public static void imprimeMenu() {
-    	System.out.println("Selecione uma opÃ§Ã£o");
-    	System.out.println("[1] Cadastrar usuÃ¡rio");
-    	System.out.println("[2] Alterar cadastro de usuÃ¡rio");
-    	System.out.println("[3] Deletar usuÃ¡rio");
-    	System.out.println("[4] Listar usuÃ¡rio");
+    	System.out.println("Selecione uma opção");
+    	System.out.println("[1] Cadastrar usuário");
+    	System.out.println("[2] Alterar cadastro de usuário");
+    	System.out.println("[3] Deletar usuário");
+    	System.out.println("[4] Listar usuário");
     }
 }
