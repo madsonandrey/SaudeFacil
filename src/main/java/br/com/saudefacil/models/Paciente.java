@@ -13,13 +13,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "paciente")
 public class Paciente implements Serializable {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_paciente")
     
 	private Integer pacienteID;
@@ -34,7 +31,6 @@ public class Paciente implements Serializable {
 		
 	}
 	
-
 	public Integer getPacienteID() {
 		return pacienteID;
 	}
