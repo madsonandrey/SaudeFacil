@@ -5,18 +5,17 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import br.com.saudefacil.models.Paciente;
-import br.com.saudefacil.models.Pessoa;
+import br.com.saudefacil.models.Profissional;
 
-public class PacienteDAO {
+public class ProfissionalDAO {
 static Session session;
 	
-	public List<Paciente> getPacientes() {
+	public List<Profissional> getProfissionais() {
 		try {
 			session = HibernatesUtil.getSessionFactory().openSession();
-			Query query = session.createQuery("select p from Paciente p");
-		    List<Paciente> pacientes = query.list();
-		    return pacientes;
+			Query query = session.createQuery("select p from Profissional p");
+		    List<Profissional> profissionais = query.list();
+		    return profissionais;
 		} catch(Exception sqlException) {
             if(null != session.getTransaction()) {
                 session.getTransaction().rollback();
@@ -30,13 +29,13 @@ static Session session;
         }
 	}
 	
-	public Paciente getPaciente(String cpf) {
+	public Profissional getProfissional(String cpf) {
 		try {
 			session = HibernatesUtil.getSessionFactory().openSession();
-			Query query = session.createQuery("select p from Paciente p where p.pessoa.cpf = " + cpf);
-		    List<Paciente> paciente = query.list();
-		    if (paciente.size() > 0) {
-		    	return paciente.get(0);
+			Query query = session.createQuery("select p from Profissional p where p.pessoa.cpf = " + cpf);
+		    List<Profissional> profissional = query.list();
+		    if (profissional.size() > 0) {
+		    	return profissional.get(0);
 		    } else {
 		    	return null;
 		    }
@@ -54,11 +53,11 @@ static Session session;
 		}
 	
 	
-	public void create(Paciente paciente) {
+	public void create(Profissional profissional) {
 		try {
 			session = HibernatesUtil.getSessionFactory().openSession();
 			session.beginTransaction();
-            session.save(paciente);
+            session.save(profissional);
             session.getTransaction().commit();
 		} catch(Exception sqlException) {
             if(null != session.getTransaction()) {
@@ -71,11 +70,12 @@ static Session session;
             }
         }
 	}
-	public void update(Paciente paciente) {
+	
+	public void update(Profissional profissional) {
 		try {
 			session = HibernatesUtil.getSessionFactory().openSession();
 			session.beginTransaction();
-            session.update(paciente);
+            session.update(profissional);
             
             session.getTransaction().commit();
 		} catch(Exception sqlException) {
@@ -90,12 +90,11 @@ static Session session;
         }
 	}
 	
-	
-	public void delete(Paciente paciente) {
+	public void delete(Profissional profissional) {
 		try {
 			session = HibernatesUtil.getSessionFactory().openSession();
 			session.beginTransaction();
-			session.delete(paciente);
+			session.delete(profissional);
             
             session.getTransaction().commit();
 		} catch(Exception sqlException) {
