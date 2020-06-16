@@ -16,7 +16,7 @@ public class PessoaController {
 	public void create(Pessoa pessoa) {
 		Pessoa pessoaAuxiliar = pessoaDAO.getPessoa(pessoa.getCpf());
 		if (pessoaAuxiliar != null) {
-			throw new PessoaException("J√° cadastrado!");
+			throw new PessoaException("J· cadastrado!");
 		}
 		validaPessoa(pessoa);
 		pessoaDAO.create(pessoa);
@@ -44,19 +44,19 @@ public class PessoaController {
 			throw new PessoaException("Digite 'm' ou 'f'");
 		}
 		if (pessoa.getNome().length() > TAMANHO_MAXIMO_DO_NOME) {
-			throw new PessoaException("Nome muito extenso. M√°ximo de caracteres permitidos: 200");
+			throw new PessoaException("Nome muito extenso. M·ximo de caracteres permitidos: 200");
 		}
 		if (pessoa.getCpf().length() != TAMANHO_CPF) {
-			throw new PessoaException("CPF inv√°lido. Tamanho deve ser 11 caracteres");
+			throw new PessoaException("CPF inv·lido. Tamanho deve ser 11 caracteres");
 		}
 		if (pessoa.getRg().length() < TAMANHO_RG) {
-			throw new PessoaException("RG inv√°lido. M√≠nimo de 7 n√∫meros");
+			throw new PessoaException("RG inv·lido. MÌnimo de 7 n˙meros");
 		}
 		if (!pessoa.getTipoSanguineo().equals("a+")  && !pessoa.getTipoSanguineo().equals("a-") 
 				&& !pessoa.getTipoSanguineo().equals("b+") && !pessoa.getTipoSanguineo().equals("b-") 
 				&& !pessoa.getTipoSanguineo().equals("ab+") && !pessoa.getTipoSanguineo().equals("ab-") 
 				&& !pessoa.getTipoSanguineo().equals("o+") && !pessoa.getTipoSanguineo().equals("o-")) {
-			throw new PessoaException("O tipo sangu√≠neo deve ser 'a+', 'a-', 'b+', 'b-', 'ab+', 'ab-', o+' 'o-'");
+			throw new PessoaException("O tipo sanguÌneo deve ser 'a+', 'a-', 'b+', 'b-', 'ab+', 'ab-', o+' 'o-'");
 		}
 	}
 	
