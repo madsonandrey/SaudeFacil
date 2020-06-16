@@ -16,12 +16,11 @@ public class PlanoSaudeController {
 	
 	public boolean validaUpdadePlanoSaude(PlanoSaude planoSaude) {
 
-		PlanoSaudeDAO planoSaudeDAO = new PlanoSaudeDAO();
 		planoSaudeDAO.update(planoSaude);
 		return true;
 	}	
 	public boolean validaDesabilitaPlanoSaude(PlanoSaude planoSaude) {
-		PlanoSaudeDAO planoSaudeDAO = new PlanoSaudeDAO();
+
 		planoSaudeDAO.update(planoSaude);
 		return true;
 	}

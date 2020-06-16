@@ -7,7 +7,7 @@ import br.com.saudefacil.exception.PessoaException;
 import br.com.saudefacil.models.Pessoa;
 
 public class PessoaController {
-	private static final int TAMANHO_MÁXIMO_DO_NOME = 200;
+	private static final int TAMANHO_MAXIMO_DO_NOME = 200;
 	private static final int TAMANHO_CPF = 11;
 	private static final int TAMANHO_RG = 7;
 	
@@ -43,7 +43,7 @@ public class PessoaController {
 		if (!pessoa.getSexo().equals("m") && !pessoa.getSexo().equals("f")) {
 			throw new PessoaException("Digite 'm' ou 'f'");
 		}
-		if (pessoa.getNome().length() > TAMANHO_MÁXIMO_DO_NOME) {
+		if (pessoa.getNome().length() > TAMANHO_MAXIMO_DO_NOME) {
 			throw new PessoaException("Nome muito extenso. Máximo de caracteres permitidos: 200");
 		}
 		if (pessoa.getCpf().length() != TAMANHO_CPF) {

@@ -59,6 +59,8 @@ public class PlanoSaudeView {
 			Integer planoId = scanner.nextInt();
 			planoSaude.setPlanoId(planoId);
 			planoSaude.setStatusPlan(0);
+			String planoDesc = planoSaude.getDescription();
+			planoSaude.setDescription(planoDesc);
 			planoSaudeController.validaUpdadePlanoSaude(planoSaude);
 		} catch (Exception e) {
 			System.out.println("Ouve um erro ao tentar desabilitar o plano de saúde");
