@@ -23,7 +23,7 @@ public class PacienteController {
 			throw new PacienteException("Paciente inexistente");
 		}
 		if(paciente.getStatusPaciente() == 0) {
-			throw new PacienteException("Paciente jรก encontra-se desativado");
+			throw new PacienteException("Paciente jแก encontra-se desativado");
 		}
 		paciente.setStatusPaciente(PACIENTE_DESATIVADO);
 		pacienteDAO.update(paciente);
