@@ -24,12 +24,9 @@ public class PacienteView extends PessoaView {
 	}
 	
 	public void desativarCadastro() {
-		
 		Paciente paciente = new Paciente();
-
 		System.out.println("informe o cpf do paciente");
 		String cpf = leTeclado.next();
-		
 		PacienteController pacienteController = new PacienteController();
 		paciente = pacienteController.getPaciente(cpf);
 		pacienteController.desativarPaciente(paciente);
@@ -50,6 +47,7 @@ public class PacienteView extends PessoaView {
 		if(paciente == null) {
 			throw new PacienteException("Paciente não cadastrado");
 		}
-		System.out.println(paciente.getPessoa());
+		System.out.print(paciente.getPessoa());
+		System.out.println("[statusPaciente: " + paciente.getStatusPaciente() + "]");
 	}
 }

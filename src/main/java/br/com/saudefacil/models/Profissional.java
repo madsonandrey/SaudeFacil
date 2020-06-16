@@ -4,19 +4,17 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 	
 	@Entity
 	@Table(name = "profissional")
-	 public class Profissional implements Serializable  {
+	 
+	public class Profissional implements Serializable  {
 		private static final long serialVersionUID = 1L;
 		
 		@Id
-	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    @Column(name = "credencial")
 		private String credencial;
 		
@@ -35,6 +33,16 @@ import javax.persistence.Table;
 		public Profissional() {
 			
 		} 
+
+		public Profissional(String credencial, Pessoa pessoa, Integer statusAutonomo, Integer atendeClinica,
+				Integer statusProfissional) {
+			super();
+			this.credencial = credencial;
+			this.pessoa = pessoa;
+			this.statusAutonomo = statusAutonomo;
+			this.atendeClinica = atendeClinica;
+			this.statusProfissional = statusProfissional;
+		}
 
 		public String getCredencial() {
 			return credencial;

@@ -75,8 +75,8 @@ static Session session;
 		try {
 			session = HibernatesUtil.getSessionFactory().openSession();
 			session.beginTransaction();
+            session.update(profissional.getPessoa());
             session.update(profissional);
-            
             session.getTransaction().commit();
 		} catch(Exception sqlException) {
             if(null != session.getTransaction()) {

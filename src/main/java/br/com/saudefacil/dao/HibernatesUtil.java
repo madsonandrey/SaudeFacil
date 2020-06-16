@@ -13,7 +13,6 @@ import br.com.saudefacil.models.Pessoa;
 import br.com.saudefacil.models.PlanoSaude;
 import br.com.saudefacil.models.Profissional;
 
-
 public class HibernatesUtil {
 	private static SessionFactory sessionFactory;
 	public static SessionFactory getSessionFactory() {
