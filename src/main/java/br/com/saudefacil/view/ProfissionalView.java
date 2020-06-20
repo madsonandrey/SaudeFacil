@@ -6,10 +6,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-import br.com.saudefacil.controllers.PessoaController;
 import br.com.saudefacil.controllers.ProfissionalController;
 import br.com.saudefacil.exception.ProfissionalException;
-import br.com.saudefacil.models.Pessoa;
 import br.com.saudefacil.models.Profissional;
 
 public class ProfissionalView extends PessoaView {
@@ -26,11 +24,11 @@ public class ProfissionalView extends PessoaView {
 		String credencial = leTeclado.next();
 		profissional.setCredencial(credencial);
 		
-		System.out.println("Atende em clÌnica? Digite 1 para sim e 0 para n√£o");
+		System.out.println("Atende em cl√≠nica? Digite 1 para sim e 0 para n√£o");
 		Integer atendeClinica = leTeclado.nextInt();
 		profissional.setAtendeClinica(atendeClinica);
 		
-		System.out.println("Trabalha como autÙnomo? Digite 1 para sim e 0 para n√£o");
+		System.out.println("Trabalha como aut√¥nomo? Digite 1 para sim e 0 para n√£o");
 		Integer atendeAutonomo = leTeclado.nextInt();
 		profissional.setStatusAutonomo(atendeAutonomo);
 		
@@ -51,7 +49,7 @@ public class ProfissionalView extends PessoaView {
 			throw new ProfissionalException("Profissional n√£o cadastrado");
 		}
 		System.out.println("Profissional cadastrado: " + profissional.getPessoa().getNome());
-		System.out.println("O que vocÍ deseja alterar? [1]nome [2]sexo [3]cpf [4]rg [5]data de nascimento [6]tipo sanguÌneo [7]credencial [8]status autonomo [9]status clÌnica [10]cancelar");
+		System.out.println("O que voc√™ deseja alterar? [1]nome [2]sexo [3]cpf [4]rg [5]data de nascimento [6]tipo sangu√≠neo [7]credencial [8]status autonomo [9]status cl√≠nica [10]cancelar");
 		int opcao = leTeclado.nextInt();
 		switch (opcao) {
 		case 1:
@@ -60,7 +58,7 @@ public class ProfissionalView extends PessoaView {
 			leTeclado.nextLine();
 			profissional.getPessoa().setNome(nome);
 			profissionalController.update(profissional);
-			System.out.println("AlteraÁ„o realizada com sucesso!");
+			System.out.println("Altera√ß√£o realizada com sucesso!");
 			break;
 
 		case 2:
@@ -68,7 +66,7 @@ public class ProfissionalView extends PessoaView {
 			String sexo = leTeclado.next();
 			profissional.getPessoa().setSexo(sexo);
 			profissionalController.update(profissional);
-			System.out.println("AlteraÁ„o realizada com sucesso!");
+			System.out.println("Altera√ß√£o realizada com sucesso!");
 			break;
 		case 3:
 			System.out.println("Digite o novo cpf");
@@ -76,14 +74,14 @@ public class ProfissionalView extends PessoaView {
 			leTeclado.nextLine();
 			profissional.getPessoa().setCpf(cpfNovo);
 			profissionalController.update(profissional);
-			System.out.println("AlteraÁ„o realizada com sucesso!");
+			System.out.println("Altera√ß√£o realizada com sucesso!");
 			break;
 		case 4:
 			System.out.println("Digite o novo rg");
 			String rg = leTeclado.next();
 			profissional.getPessoa().setRg(rg);
 			profissionalController.update(profissional);
-			System.out.println("AlteraÁ„o realizada com sucesso!");
+			System.out.println("Altera√ß√£o realizada com sucesso!");
 			break;
 		case 5:
 			System.out.println("Digite a nova data de nascimento");
@@ -93,44 +91,44 @@ public class ProfissionalView extends PessoaView {
 			try {
 				date = formatter.parse(data);
 			} catch (ParseException e) {
-				System.out.println("Data inv·lida");
+				System.out.println("Data inv√°lida");
 			} 
 			profissional.getPessoa().setDataNascimento(date);
 			profissionalController.update(profissional);
-			System.out.println("AlteraÁ„o realizada com sucesso!");
+			System.out.println("Altera√ß√£o realizada com sucesso!");
 			break;
 		case 6:
-			System.out.println("Digite o novo tipo sanguÌneo");
+			System.out.println("Digite o novo tipo sangu√≠neo");
 			String tipoSanguineo = leTeclado.next();
 			profissional.getPessoa().setTipoSanguineo(tipoSanguineo);
 			profissionalController.update(profissional);
-			System.out.println("AlteraÁ„o realizada com sucesso!");
+			System.out.println("Altera√ß√£o realizada com sucesso!");
 			break;
 		case 7:
 			System.out.println("Digite a nova credencial");
 			String credencial = leTeclado.next();
 			profissional.setCredencial(credencial);
 			profissionalController.update(profissional);
-			System.out.println("AlterÁ„o realizada com sucesso!");
+			System.out.println("Altera√ß√£o realizada com sucesso!");
 			break;
 		case 8:
-			System.out.println("Atende como autonomo? Digite para 1 para SIM ou 0 para N√O");
+			System.out.println("Atende como autonomo? Digite para 1 para SIM ou 0 para N√ÉO");
 			Integer statusAutonomo = leTeclado.nextInt();
 			profissional.setStatusAutonomo(statusAutonomo);
 			profissionalController.update(profissional);
-			System.out.println("AlteraÁ„o realizada com sucesso!");
+			System.out.println("Altera√ß√£o realizada com sucesso!");
 			break;
 		case 9:
-			System.out.println("Atende em clÌnica? Digite um 1 para SIM ou 0 para N√O");
+			System.out.println("Atende em cl√≠nica? Digite um 1 para SIM ou 0 para N√ÉO");
 			Integer statusClinica = leTeclado.nextInt();
 			profissional.setAtendeClinica(statusClinica);
 			profissionalController.update(profissional);
-			System.out.println("AlteraÁ„o realizada com sucesso!");
+			System.out.println("Altera√ß√£o realizada com sucesso!");
 			break;
 		case 10:
 			return;
 		default:
-			System.out.println("OpÁ„o inv·lida. Tente novamente");
+			System.out.println("Op√ß√£o inv√°lida. Tente novamente");
 			atualizarCadastro();
 		}
 	}
@@ -145,7 +143,7 @@ public class ProfissionalView extends PessoaView {
 		String cpf = leTeclado.next();
 		profissional = profissionalController.getProfissional(cpf);
 		if(profissional == null) {
-			throw new ProfissionalException("Profissional n„o cadastrado");
+			throw new ProfissionalException("Profissional n√£o cadastrado");
 		}
 		System.out.print(profissional.getPessoa());
 		System.out.print("[statusAutonomo: " + profissional.getStatusAutonomo() + "]");

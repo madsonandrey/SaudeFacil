@@ -14,11 +14,11 @@ public class PlanoSaudeView {
 		PlanoSaude planoSaude = new PlanoSaude();
 
 		scanner = new Scanner(System.in);
-		System.out.println("Digite o ID do Plano que você quer cadastrar");
+		System.out.println("Digite o ID do Plano que vocÃª quer cadastrar");
 		Integer idPlano = scanner.nextInt();
 		planoSaude.setPlanoId(idPlano);
 
-		System.out.println("Informe o nome do plano de saúde");
+		System.out.println("Informe o nome do plano de saÃºde");
 		String descricao = scanner.next();
 		planoSaude.setDescription(descricao);
 
@@ -35,7 +35,7 @@ public class PlanoSaudeView {
 		scanner = new Scanner(System.in);
 		try {
 
-			System.out.println("Indorme o ID do plnano que pretende alterar");
+			System.out.println("Indorme o ID do plano que pretende alterar");
 			Integer planoId = scanner.nextInt();
 			planoSaude.setPlanoId(planoId);
 			System.out.println("Informe o nome do plano:");
@@ -45,7 +45,7 @@ public class PlanoSaudeView {
 			planoSaudeController.validaUpdadePlanoSaude(planoSaude);
 
 		} catch (Exception e) {
-			System.out.println("Ouve um erro ao tentar alterar as informações do plano de saúde");
+			System.out.println("Houve um erro ao tentar alterar as informaÃ§Ãµes do plano de saÃºde");
 		}
 	}
 
@@ -55,7 +55,7 @@ public class PlanoSaudeView {
 		PlanoSaudeController planoSaudeController = new PlanoSaudeController();
 		scanner = new Scanner(System.in);
 		try {
-			System.out.println("Indorme o ID do plnano para desabilitar o plano de saúde");
+			System.out.println("Indorme o ID do plano para desabilitar o plano de saÃºde");
 			Integer planoId = scanner.nextInt();
 			planoSaude.setPlanoId(planoId);
 			planoSaude.setStatusPlan(0);
@@ -63,7 +63,7 @@ public class PlanoSaudeView {
 			planoSaude.setDescription(planoDesc);
 			planoSaudeController.validaUpdadePlanoSaude(planoSaude);
 		} catch (Exception e) {
-			System.out.println("Ouve um erro ao tentar desabilitar o plano de saúde");
+			System.out.println("Houve um erro ao tentar desabilitar o plano de saÃºde");
 		}
 	}
 

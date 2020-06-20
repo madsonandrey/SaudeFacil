@@ -32,7 +32,7 @@ public class PessoaView {
 			System.out.println("Digite seu sexo [m] | [f]");
 			String sexo = leTeclado.next().toLowerCase();
 
-			System.out.println("Digite seu tipo sanguÌneo: 'a+'|'a-'|'b+'|'b-'|'ab+'|'ab-'|'o+'|'o-|");
+			System.out.println("Digite seu tipo sangu√≠neo: 'a+'|'a-'|'b+'|'b-'|'ab+'|'ab-'|'o+'|'o-|");
 			String tipoSanguineo = leTeclado.next().toLowerCase();
 
 			System.out.println("Digite sua data de nascimento (dd/mm/aaaa)");
@@ -42,14 +42,14 @@ public class PessoaView {
 			try {
 				date = formatter.parse(data);
 			} catch (ParseException e) {
-				throw new PessoaException("Data inv·lida");
+				throw new PessoaException("Data inv√°lida");
 			}
 			Pessoa pessoaNova = new Pessoa(null, cpf, rg, sexo, nome, date, tipoSanguineo);
 			pessoaController.create(pessoaNova);
 			return pessoaNova;
 		} else {
-			System.out.println("Pessoa j· cadastrada: " + pessoa.getNome());
-			throw new PessoaException("Pessoa j· cadastrada");
+			System.out.println("Pessoa j√° cadastrada: " + pessoa.getNome());
+			throw new PessoaException("Pessoa j√° cadastrada");
 		}
 	}
 
@@ -62,11 +62,11 @@ public class PessoaView {
 			leTeclado.nextLine();
 			pessoa = pessoaController.getPessoa(cpf);
 			if(pessoa == null) {
-				throw new PessoaException("Paciente n„o cadastrado");
+				throw new PessoaException("Paciente n√£o cadastrado");
 			}
 			System.out.println("Nome do paciente: " + pessoa.getNome());
 
-			System.out.println("O que vocÍ deseja alterar? [1]nome [2]sexo [3]cpf [4]rg [5]data de nascimento [6]tipo sanguÌneo [7]cancelar");
+			System.out.println("O que voc√™ deseja alterar? [1]nome [2]sexo [3]cpf [4]rg [5]data de nascimento [6]tipo sangu√≠neo [7]cancelar");
 			int opcao = leTeclado.nextInt();
 			switch (opcao) {
 			case 1:
@@ -75,7 +75,7 @@ public class PessoaView {
 				leTeclado.nextLine();
 				pessoa.setNome(nome);
 				pessoaController.update(pessoa);
-				System.out.println("AlteraÁ„o realizada com sucesso!");
+				System.out.println("Altera√ß√£o realizada com sucesso!");
 				break;
 
 			case 2:
@@ -83,7 +83,7 @@ public class PessoaView {
 				String sexo = leTeclado.next();
 				pessoa.setSexo(sexo);
 				pessoaController.update(pessoa);
-				System.out.println("AlteraÁ„o realizada com sucesso!");
+				System.out.println("Altera√ß√£o realizada com sucesso!");
 				break;
 			case 3:
 				System.out.println("Digite o novo cpf");
@@ -91,14 +91,14 @@ public class PessoaView {
 				leTeclado.nextLine();
 				pessoa.setCpf(cpfNovo);
 				pessoaController.update(pessoa);
-				System.out.println("AlteraÁ„o realizada com sucesso!");
+				System.out.println("Altera√ß√£o realizada com sucesso!");
 				break;
 			case 4:
 				System.out.println("Digite o novo rg");
 				String rg = leTeclado.next();
 				pessoa.setRg(rg);
 				pessoaController.update(pessoa);
-				System.out.println("AlteraÁ„o realizada com sucesso!");
+				System.out.println("Altera√ß√£o realizada com sucesso!");
 				break;
 			case 5:
 				System.out.println("Digite a nova data de nascimento");
@@ -112,19 +112,19 @@ public class PessoaView {
 				} 
 				pessoa.setDataNascimento(date);
 				pessoaController.update(pessoa);
-				System.out.println("AlteraÁ„o realizada com sucesso!");
+				System.out.println("Altera√ß√£o realizada com sucesso!");
 				break;
 			case 6:
-				System.out.println("Digite o novo tipo sanguÌneo");
+				System.out.println("Digite o novo tipo sangu√≠neo");
 				String tipoSanguineo = leTeclado.next();
 				pessoa.setTipoSanguineo(tipoSanguineo);
 				pessoaController.update(pessoa);
-				System.out.println("AlteraÁ„o realizada com sucesso!");
+				System.out.println("Altera√ß√£o realizada com sucesso!");
 				break;
 			case 7:
 				return;
 			default:
-				System.out.println("OpÁ„o inv·lida. Tente novamente");
+				System.out.println("Op√ß√£o inv√°lida. Tente novamente");
 				atualizarCadastro();
 			}
 	}
@@ -142,13 +142,13 @@ public class PessoaView {
 		leTeclado.nextLine();
 		pessoa = pessoaController.getPessoa(cpf);
 		System.out.println("Usu√°rio: " + pessoa.getNome());
-		System.out.println("Tem certeza que deseja apagar esse usu·rio? [1]Sim | [2]N„o");
+		System.out.println("Tem certeza que deseja apagar esse usu√°rio? [1]Sim | [2]NÔøΩo");
 		int opcao = leTeclado.nextInt();
 		if (opcao == 1) {
 			pessoaController.deletePessoa(pessoa);
-			System.out.println("Usu·rio deletado");
+			System.out.println("Usu√°rio deletado");
 		} else {
-			System.out.println("OperaÁ„o cancelada");
+			System.out.println("Opera√ß√£o cancelada");
 		}
 	}
 }

@@ -1,7 +1,7 @@
 package br.com.saudefacil;
 
-import java.util.List;
 import java.util.InputMismatchException;
+
 import java.util.Scanner;
 
 import br.com.saudefacil.dao.EspecialidadesDAO;
@@ -16,16 +16,6 @@ public class AppMain {
 
 	public static void main(String[] args) {
 		Scanner leTeclado = new Scanner(System.in);
-
-		/*
-		 * EspecialidadesDAO especialidadesDAO = new EspecialidadesDAO(); String view =
-		 * especialidadesDAO.getUvwClinicasComEspecialidades();
-		 * System.out.println(view);
-		 */
-		
-		EspecialidadesDAO especialidadesDAO = new EspecialidadesDAO();
-		List<Especialidades> view = especialidadesDAO.getEspecialidades();
-		System.out.println(view);
 
 		int opcao = -1;
 		while (true) {
