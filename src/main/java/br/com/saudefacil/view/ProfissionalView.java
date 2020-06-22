@@ -11,7 +11,6 @@ import br.com.saudefacil.exception.ProfissionalException;
 import br.com.saudefacil.models.Profissional;
 
 public class ProfissionalView extends PessoaView {
-	private static final int PROFISSIONAL_DESATIVADO = 0;
 	private static final int PROFISSIONAL_ATIVO = 1;
 	Scanner leTeclado = new Scanner(System.in);
 	ProfissionalController profissionalController = new ProfissionalController();

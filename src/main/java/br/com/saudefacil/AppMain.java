@@ -8,12 +8,15 @@ import br.com.saudefacil.exception.PessoaException;
 import br.com.saudefacil.exception.ProfissionalException;
 import br.com.saudefacil.view.PacienteView;
 import br.com.saudefacil.view.ProfissionalView;
+import br.com.saudefacil.view.RelatorioView;
 
 public class AppMain {
 	
 	public static void main(String[] args) {
 			Scanner leTeclado = new Scanner(System.in);
+			RelatorioView relatorioView = new RelatorioView();
 			int opcao = -1;
+			
 				while(true) {
 					try {
 						menuPrincipal();
@@ -25,9 +28,15 @@ public class AppMain {
 						case 2:
 							menuProfissional();
 							break;
-						case 3:	
+						case 3:
+							relatorioView.getRelatorio();
+							break;
+						case 4:	
 							System.out.println("Até mais!");
 							System.exit(0);
+							
+						default:
+							System.out.println("Digite entre 1 a 4");
 						}
 						
 					} catch(PacienteException erro) {
@@ -46,7 +55,8 @@ public class AppMain {
 		System.out.println("Selecione uma opção");
 		System.out.println("[1] Menu paciente");
 		System.out.println("[2] Menu profissional");
-		System.out.println("[3] Sair");
+		System.out.println("[3] Relatório com especialidades das clínicas");
+		System.out.println("[4] Sair");
 		}
 	
 	public static void menuPaciente() {
