@@ -14,6 +14,7 @@ import br.com.saudefacil.models.Pessoa;
 import br.com.saudefacil.models.PlanoSaude;
 import br.com.saudefacil.models.Profissional;
 import br.com.saudefacil.models.Relatorio;
+import br.com.saudefacil.models.Sintoma;
 
 public class HibernatesUtil {
 	private static SessionFactory sessionFactory;
@@ -37,6 +38,7 @@ public class HibernatesUtil {
 				configuration.addAnnotatedClass(Profissional.class);
 				configuration.addAnnotatedClass(Relatorio.class);
 				configuration.addAnnotatedClass(Especialidades.class);
+				configuration.addAnnotatedClass(Sintoma.class);
 				ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
 						.applySettings(configuration.getProperties()).build();
 				sessionFactory = configuration.buildSessionFactory(serviceRegistry);
