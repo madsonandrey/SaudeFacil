@@ -9,7 +9,6 @@ import br.com.saudefacil.exception.ProfissionalException;
 import br.com.saudefacil.view.PacienteView;
 import br.com.saudefacil.view.ProfissionalView;
 import br.com.saudefacil.view.RelatorioView;
-import br.com.saudefacil.view.SintomaView;
 
 public class AppMain {
 	
@@ -17,6 +16,7 @@ public class AppMain {
 			Scanner leTeclado = new Scanner(System.in);
 			RelatorioView relatorioView = new RelatorioView();
 			int opcao = -1;
+			
 				while(true) {
 					try {
 						menuPrincipal();
