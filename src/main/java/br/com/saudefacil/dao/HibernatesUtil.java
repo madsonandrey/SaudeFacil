@@ -8,6 +8,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 
+import br.com.saudefacil.models.Especialidades;
 import br.com.saudefacil.models.Paciente;
 import br.com.saudefacil.models.Pessoa;
 import br.com.saudefacil.models.PlanoSaude;
@@ -35,6 +36,7 @@ public class HibernatesUtil {
 				configuration.addAnnotatedClass(PlanoSaude.class);
 				configuration.addAnnotatedClass(Profissional.class);
 				configuration.addAnnotatedClass(Relatorio.class);
+				configuration.addAnnotatedClass(Especialidades.class);
 				ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
 						.applySettings(configuration.getProperties()).build();
 				sessionFactory = configuration.buildSessionFactory(serviceRegistry);
