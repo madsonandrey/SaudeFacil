@@ -33,11 +33,11 @@ public class ProfissionalController {
 	
 	public void validaProfissional(Profissional profissional) {
 		if(profissional.getAtendeClinica() != 1 && profissional.getAtendeClinica() != 0) {
-			throw new ProfissionalException("Digite 1 para SIM ou 0 para N√ÉO");
+			throw new ProfissionalException("Digite 1 para SIM ou 0 para N√O");
 		}
 		
 		if(profissional.getStatusAutonomo() != 1 && profissional.getStatusAutonomo() != 0) {
-			throw new ProfissionalException("Digite 1 para SIM ou 0 para N√ÉO");
+			throw new ProfissionalException("Digite 1 para SIM ou 0 para N√O");
 		}
 		
 		if((!profissional.getCredencial().substring(0,3).equalsIgnoreCase("CRP"))
@@ -54,7 +54,7 @@ public class ProfissionalController {
 			throw new ProfissionalException("Profissional inexistente");
 		}
 		if(profissional.getStatusProfissional() == 0) {
-			throw new ProfissionalException("Profissional j√° encontra-se desativado");
+			throw new ProfissionalException("Profissional j· encontra-se desativado");
 		}
 		 profissional.setStatusProfissional(PROFISSIONAL_DESATIVADO);
 		 profissionaldao.update(profissional);
