@@ -10,6 +10,7 @@ public class EspecialidadesController {
 
 	public List<Especialidades> getEspecialidades() {
 		return especialidadesDAO.getEspecialidades();
+		
 	}
 	
 }
