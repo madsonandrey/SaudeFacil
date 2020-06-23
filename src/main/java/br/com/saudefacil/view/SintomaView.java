@@ -3,6 +3,7 @@ package br.com.saudefacil.view;
 import java.util.List;
 import java.util.Scanner;
 import br.com.saudefacil.controllers.SintomaController;
+import br.com.saudefacil.exception.SintomaException;
 import br.com.saudefacil.models.Sintoma;
 
 
@@ -21,6 +22,10 @@ public class SintomaView {
 			System.out.println("Digite seu sintoma");
 			String sintomaNovo =  leTeclado.nextLine();
 			sintoma.setDescricao(sintomaNovo);
+			if (sintomaNovo.equalsIgnoreCase(sintoma.getDescricao())) {
+				throw new SintomaException("Sintoma já cadastrado"); 
+			}
+			
 		    sintomaController.update(sintoma);
 			
 		}
