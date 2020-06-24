@@ -24,7 +24,6 @@ public class Especialidades implements Serializable {
 	private String descricao;
 
 	public Especialidades() {
-
 	}
 
 	public Integer getEspecialidadeID() {

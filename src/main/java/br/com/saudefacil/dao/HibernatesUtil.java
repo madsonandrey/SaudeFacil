@@ -39,7 +39,6 @@ public class HibernatesUtil {
 				configuration.addAnnotatedClass(Relatorio.class);
 				configuration.addAnnotatedClass(Sintoma.class);
 				configuration.addAnnotatedClass(Especialidades.class);
-
 				ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
 						.applySettings(configuration.getProperties()).build();
 				sessionFactory = configuration.buildSessionFactory(serviceRegistry);
