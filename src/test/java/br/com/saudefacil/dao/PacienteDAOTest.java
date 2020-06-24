@@ -28,6 +28,7 @@ class PacienteDAOTest {
 		class listaPaciente{
 		@Test
 		@DisplayName("CT003.01 - Teste Listar Paciente Pelo Cpf")
+		
 		void listarPacientePeloCpf() {
 			paciente = pacienteDAO.getPaciente("10838068455");
 			String resultadoAtual = paciente.getPessoa().getCpf();
