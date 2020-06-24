@@ -15,4 +15,6 @@ public class SintomaController {
 	public void update(Sintoma sintoma) {
 		SintomaDAO.update(sintoma);
 	}
+
+
 }

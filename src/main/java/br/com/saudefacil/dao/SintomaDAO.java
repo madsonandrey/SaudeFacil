@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
+import br.com.saudefacil.models.Pessoa;
 import br.com.saudefacil.models.Sintoma;
 
 public class SintomaDAO {
@@ -29,7 +30,8 @@ public class SintomaDAO {
             }
         }
 	}
-	public void update(Sintoma sintoma) {
+	
+		public void update(Sintoma sintoma) {
 		try {
 			session = HibernatesUtil.getSessionFactory().openSession();
 			session.beginTransaction();
