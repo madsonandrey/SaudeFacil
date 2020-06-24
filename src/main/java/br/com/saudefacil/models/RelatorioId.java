@@ -28,5 +28,6 @@ public class RelatorioId implements Serializable {
 	public void setEspecialidade(String especialidade) {
 		this.especialidade = especialidade;
 	}
+	
 
 }
