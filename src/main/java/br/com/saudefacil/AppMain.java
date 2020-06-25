@@ -6,6 +6,7 @@ import java.util.Scanner;
 import br.com.saudefacil.exception.PacienteException;
 import br.com.saudefacil.exception.PessoaException;
 import br.com.saudefacil.exception.ProfissionalException;
+import br.com.saudefacil.view.ClinicaView;
 import br.com.saudefacil.view.PacienteView;
 import br.com.saudefacil.view.ProfissionalView;
 import br.com.saudefacil.view.RelatorioView;
@@ -29,14 +30,17 @@ public class AppMain {
 							menuProfissional();
 							break;
 						case 3:
+							menuClinica();
+							break;
+						case 4:
 							relatorioView.getRelatorio();
 							break;
-						case 4:	
+						case 5:	
 							System.out.println("Até mais!");
 							System.exit(0);
 							
 						default:
-							System.out.println("Digite entre 1 a 4");
+							System.out.println("Digite entre 1 a 5");
 						}
 						
 					} catch(PacienteException erro) {
@@ -55,8 +59,9 @@ public class AppMain {
 		System.out.println("Selecione uma opção");
 		System.out.println("[1] Menu paciente");
 		System.out.println("[2] Menu profissional");
-		System.out.println("[3] Relatório com especialidades das clínicas");
-		System.out.println("[4] Sair");
+		System.out.println("[3] Menu clínica");
+		System.out.println("[4] Relatório com especialidades das clínicas");
+		System.out.println("[5] Sair");
 		}
 	
 	public static void menuPaciente() {
@@ -126,6 +131,30 @@ public class AppMain {
 				menuProfissional();
 			}
 		}
+		
+		public static void menuClinica() {
+			Scanner leTeclado = new Scanner(System.in);
+			ClinicaView clinicaView = new ClinicaView();
+			System.out.println("Selecione uma opção");
+			System.out.println("[1] Cadastrar clínica");
+			System.out.println("[2] Listar clínicas");
+			System.out.println("[3] Retornar ao menu principal");
 
+			int opcao = leTeclado.nextInt();
+			
+			switch(opcao) {
+				case 1:
+					clinicaView.cadastrarClinica();
+					break;
+				case 2:
+					clinicaView.getClinicas();
+					break;
+				case 3:
+					break;
+				default:
+					System.out.println("Opção inválida. Escolha entre 1 e 3");
+					menuClinica();
+			}
+		}
 	}
 
