@@ -17,10 +17,12 @@ public class TestePlanoSaude {
 			//planoSaudeView.updatePlanoSaude();
 			
 			//planoSaudeView.desabilitaPlanoSaude();
-			List<Especialidades> especielidades;
-			EspecialidadesDAO especialidadeDAO = new EspecialidadesDAO();
-			especielidades = especialidadeDAO.getEspecialidades();
-			System.out.println(especielidades.toString());
+/*
+	*		List<Especialidades> especielidades;
+	*		EspecialidadesDAO especialidadeDAO = new EspecialidadesDAO();
+	*		especielidades = especialidadeDAO.getEspecialidades();
+	*		System.out.println(especielidades.toString());
+*/
 	}
 	
 
