@@ -9,18 +9,15 @@ import br.com.saudefacil.exception.ProfissionalException;
 import br.com.saudefacil.view.PacienteView;
 import br.com.saudefacil.view.ProfissionalView;
 import br.com.saudefacil.view.RelatorioView;
-import br.com.saudefacil.view.SintomaView;
 
 public class AppMain {
 	
 	public static void main(String[] args) {
+			@SuppressWarnings("resource")
 			Scanner leTeclado = new Scanner(System.in);
 			RelatorioView relatorioView = new RelatorioView();
 			int opcao = -1;
-			SintomaView sintomaView = new SintomaView();
-			sintomaView.updateSintoma();
-			sintomaView.getListarSintomas();
-				while(true) {
+							while(true) {
 					try {
 						menuPrincipal();
 						opcao = leTeclado.nextInt();
@@ -55,6 +52,7 @@ public class AppMain {
 				}
 	}
 	public static void menuPrincipal() {
+		Scanner leTeclado = new Scanner(System.in);
 		System.out.println("Selecione uma opção");
 		System.out.println("[1] Menu paciente");
 		System.out.println("[2] Menu profissional");
@@ -64,70 +62,72 @@ public class AppMain {
 	
 	public static void menuPaciente() {
 		Scanner leTeclado = new Scanner(System.in);
-		PacienteView pacienteView = new PacienteView();
-		System.out.println("[1] Cadastrar paciente");
-		System.out.println("[2] Alterar cadastro de paciente");
-		System.out.println("[3] Desativar paciente");
-		System.out.println("[4] Lista de pacientes");
-		System.out.println("[5] Listar dados de um paciente");
-		System.out.println("[6] Retornar ao menu principal");
-		int opcao = leTeclado.nextInt();
-		switch(opcao) {
-			case 1:
-				pacienteView.criarPaciente();
-				break;
-			case 2:	
-				pacienteView.atualizarCadastro();
-				break;
-			case 3:
-				pacienteView.desativarCadastro();
-				break;
-			case 4:
-				pacienteView.getListaPaciente();
-				break;
-			case 5:
-				pacienteView.getPaciente();
-				break;
-			case 6:
-				break;
-			default:
-				System.out.println("Opção inválida. Escolha entre 1 e 6");
-				menuPaciente();
-			}
+			PacienteView pacienteView = new PacienteView();
+			System.out.println("[1] Cadastrar paciente");
+			System.out.println("[2] Alterar cadastro de paciente");
+			System.out.println("[3] Desativar paciente");
+			System.out.println("[4] Lista de pacientes");
+			System.out.println("[5] Listar dados de um paciente");
+			System.out.println("[6] Retornar ao menu principal");
+			int opcao = leTeclado.nextInt();
+			switch(opcao) {
+				case 1:
+					pacienteView.criarPaciente();
+					break;
+				case 2:	
+					pacienteView.atualizarCadastro();
+					break;
+				case 3:
+					pacienteView.desativarCadastro();
+					break;
+				case 4:
+					pacienteView.getListaPaciente();
+					break;
+				case 5:
+					pacienteView.getPaciente();
+					break;
+				case 6:
+					break;
+				default:
+					System.out.println("Opção inválida. Escolha entre 1 e 6");
+					menuPaciente();
+				}
 		}
+		
 	public static void menuProfissional() {
-		Scanner leTeclado = new Scanner(System.in);
-		ProfissionalView profissionalView = new ProfissionalView();
-		System.out.println("Selecione uma opção");
-		System.out.println("[1] Cadastrar profissional");
-		System.out.println("[2] Alterar cadastro de profissional");
-		System.out.println("[3] Desativar profissional");
-		System.out.println("[4] Lista de profissionais");
-		System.out.println("[5] Listar dados de um profissional");
-		System.out.println("[6] Retornar ao menu principal");
-		int opcao = leTeclado.nextInt();
-		switch(opcao) {
-			case 1:
-				profissionalView.criarProfissional();
-				break;
-			case 2:
-				profissionalView.alterarCadastro();
-				break;
-			case 3:
-				profissionalView.desativarProfissional();
-				break;
-			case 4:
-				profissionalView.getListaProfissionais();
-				break;
-			case 5:
-				profissionalView.getProfissional();
-				break;
-			case 6:
-				break;
-			default:
-				System.out.println("Opção inválida. Escolha entre 1 e 6");
-				menuProfissional();
-			}
+			Scanner leTeclado = new Scanner(System.in);
+			ProfissionalView profissionalView = new ProfissionalView();
+			System.out.println("Selecione uma opção");
+			System.out.println("[1] Cadastrar profissional");
+			System.out.println("[2] Alterar cadastro de profissional");
+			System.out.println("[3] Desativar profissional");
+			System.out.println("[4] Lista de profissionais");
+			System.out.println("[5] Listar dados de um profissional");
+			System.out.println("[6] Retornar ao menu principal");
+			int opcao = leTeclado.nextInt();
+			switch(opcao) {
+				case 1:
+					profissionalView.criarProfissional();
+					break;
+				case 2:
+					profissionalView.alterarCadastro();
+					break;
+				case 3:
+					profissionalView.desativarProfissional();
+					break;
+				case 4:
+					profissionalView.getListaProfissionais();
+					break;
+				case 5:
+					profissionalView.getProfissional();
+					break;
+				case 6:
+					break;
+				default:
+					System.out.println("Opção inválida. Escolha entre 1 e 6");
+					menuProfissional();
+				}
+		
 		}
 
 	}

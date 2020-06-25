@@ -3,8 +3,11 @@ package br.com.saudefacil.view;
 import java.util.List;
 import java.util.Scanner;
 
-import br.com.saudefacil.controllers.SintomaController;
+import br.com.saudefacil.exception.PacienteException;
 import br.com.saudefacil.exception.SintomaException;
+import br.com.saudefacil.controllers.PacienteController;
+import br.com.saudefacil.controllers.SintomaController;
+import br.com.saudefacil.models.Paciente;
 import br.com.saudefacil.models.Sintoma;
 
 public class SintomaView {
