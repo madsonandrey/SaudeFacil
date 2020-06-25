@@ -19,11 +19,11 @@ class ProfissionalDAOTest {
 		profissionalDAO = new ProfissionalDAO();
 	}
 	@Nested
-	@DisplayName("Cenario 002 - Teste Listar Profissional")
+	@DisplayName("Cenario 001 - Teste Listar Profissional")
 		
 		class listaProfissional {
 		@Test
-		@DisplayName("CT002.01 - Test Listar Profissional pelo CPF")
+		@DisplayName("CT001.01 - Test Listar Profissional pelo CPF")
 		void listaProfissionalPeloCpf() {
 			profissional = profissionalDAO.getProfissional("11111111111");
 			String resultadoAtual = profissional.getPessoa().getCpf();
@@ -32,7 +32,7 @@ class ProfissionalDAOTest {
 			}
 		
 		@Test
-		@DisplayName("CT002.02 - Test Listar Profissional pelo Nome")
+		@DisplayName("CT001.02 - Test Listar Profissional pelo Nome")
 		void listaProfissionalPeloNome() {
 			profissional = profissionalDAO.getProfissional("11111111111");
 			String resultadoAtual = profissional.getPessoa().getNome();
@@ -41,7 +41,7 @@ class ProfissionalDAOTest {
 			}
 		
 		@Test
-		@DisplayName("CT002.03 - Test Listar Profissional pela Credencial")
+		@DisplayName("CT001.03 - Test Listar Profissional pela Credencial")
 		void listaProfissionalPelaCredencial() {
 			profissional = profissionalDAO.getProfissional("11111111111");
 			String resultadoAtual = profissional.getCredencial();

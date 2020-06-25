@@ -23,11 +23,12 @@ class PacienteDAOTest {
 	}
 	
 	@Nested
-	@DisplayName("Cenário 003 - Teste Listar Paciente")
+	@DisplayName("Cen�rio 001 - Teste Listar Paciente")
 	
 		class listaPaciente{
 		@Test
-		@DisplayName("CT003.01 - Teste Listar Paciente Pelo Cpf")
+		@DisplayName("CT001.01 - Teste Listar Paciente Pelo Cpf")
+		
 		void listarPacientePeloCpf() {
 			paciente = pacienteDAO.getPaciente("10838068455");
 			String resultadoAtual = paciente.getPessoa().getCpf();
@@ -36,7 +37,7 @@ class PacienteDAOTest {
 		}
 		
 		@Test
-		@DisplayName("CT003.02 - Teste Listar Paciente Pelo Rg")
+		@DisplayName("CT001.02 - Teste Listar Paciente Pelo Rg")
 		void listarPacientePeloRg() {
 			paciente = pacienteDAO.getPaciente("10838068455");
 			String resultadoAtual = paciente.getPessoa().getRg();
@@ -44,22 +45,12 @@ class PacienteDAOTest {
 			assertEquals(resultadoEsperado, resultadoAtual, "CPF não confere com o cadastrado");
 		}
 		@Test
-		@DisplayName("CT003.03 - Teste Listar Paciente Pelo Nome")
+		@DisplayName("CT001.03 - Teste Listar Paciente Pelo Nome")
 		void listarPacientePeloNome() {
 			paciente = pacienteDAO.getPaciente("10838068455");
 			String resultadoAtual = paciente.getPessoa().getNome();
 			String resultadoEsperado = "médson";
 			assertEquals(resultadoEsperado, resultadoAtual, "Nome não confere com o cadastrado");
-		}
-	}
-	@Nested
-	@DisplayName("Cenário 004 - Desativar Paciente")
-	class desativarPaciente{
-		@Test
-		@DisplayName("CT004.01 - Desativar Paciente")
-		void desativarPaciente() {
-			paciente = pacienteDAO.getPaciente("11111111111");
-			pacienteView.desativarCadastro();
 		}
 	}
 }

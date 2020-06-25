@@ -39,6 +39,14 @@ public class ProfissionalController {
 		if(profissional.getStatusAutonomo() != 1 && profissional.getStatusAutonomo() != 0) {
 			throw new ProfissionalException("Digite 1 para SIM ou 0 para N√ÉO");
 		}
+		
+		if((!profissional.getCredencial().substring(0,3).equalsIgnoreCase("CRP"))
+				&& (!profissional.getCredencial().substring(0,3).equalsIgnoreCase("CRO"))
+				&& (!profissional.getCredencial().substring(0,3).equalsIgnoreCase("CRM"))
+				&& (!profissional.getCredencial().substring(0,3).equalsIgnoreCase("CRN"))
+				&& (!profissional.getCredencial().substring(0,3).equalsIgnoreCase("CFM"))){
+			throw new ProfissionalException("Credencial inv·lida");
+		}
 	}
 	
 	public void desativarProfissional(Profissional profissional) {
