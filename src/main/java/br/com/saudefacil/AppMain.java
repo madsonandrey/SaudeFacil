@@ -7,6 +7,7 @@ import br.com.saudefacil.exception.PacienteException;
 import br.com.saudefacil.exception.PessoaException;
 import br.com.saudefacil.exception.ProfissionalException;
 import br.com.saudefacil.view.ClinicaView;
+import br.com.saudefacil.view.ConsultaPacienteView;
 import br.com.saudefacil.view.PacienteView;
 import br.com.saudefacil.view.ProfissionalView;
 import br.com.saudefacil.view.RelatorioView;
@@ -65,6 +66,7 @@ public class AppMain {
 		}
 	
 	public static void menuPaciente() {
+		ConsultaPacienteView cpView = new ConsultaPacienteView();
 		Scanner leTeclado = new Scanner(System.in);
 		PacienteView pacienteView = new PacienteView();
 		System.out.println("[1] Cadastrar paciente");
@@ -72,7 +74,8 @@ public class AppMain {
 		System.out.println("[3] Desativar paciente");
 		System.out.println("[4] Lista de pacientes");
 		System.out.println("[5] Listar dados de um paciente");
-		System.out.println("[6] Retornar ao menu principal");
+		System.out.println("[6] Descreva como se sente (um sintoma) e receba uma lista de profissionais que podem te ajudar");
+		System.out.println("[7] Retornar ao menu principal");
 		int opcao = leTeclado.nextInt();
 		switch(opcao) {
 			case 1:
@@ -91,9 +94,12 @@ public class AppMain {
 				pacienteView.getPaciente();
 				break;
 			case 6:
+				cpView.getEspecialista();
+				break;	
+			case 7:
 				break;
 			default:
-				System.out.println("Opção inválida. Escolha entre 1 e 6");
+				System.out.println("Opção inválida. Escolha entre 1 e 7");
 				menuPaciente();
 			}
 		}
