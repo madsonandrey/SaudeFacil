@@ -7,11 +7,10 @@ import br.com.saudefacil.models.Especialidades;
 
 public class EspecialidadesView {
 
-
-	
-	public void getEspecialidades(){
+	public void getEspecialidades() {
 		EspecialidadesController especialidadesController = new EspecialidadesController();
 		List<Especialidades> especialidades = especialidadesController.getEspecialidades();
-		especialidades.forEach(System.out::println);}
-	
+		especialidades.forEach(System.out::println);
+	}
+
 }
