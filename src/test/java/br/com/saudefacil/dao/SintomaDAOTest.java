@@ -25,11 +25,11 @@ class SintomaDAOTest {
 	}
 
 	@Nested
-	@DisplayName("Cenario 005 - Test Listar sintomas")
+	@DisplayName("Cenario 001 - Test Listar sintomas")
 
 	class listaSintomas {
 		@Test
-		@DisplayName("CT005.01 - Test Listar sintomas")
+		@DisplayName("CT001.01 - Test Listar sintomas")
 		void listaSintomas() {
 			sintoma = sintomaDAO.getSintoma().get(4);
 
@@ -40,7 +40,7 @@ class SintomaDAOTest {
 	}
 
 	@Test
-	@DisplayName("CT005.02 - Test Listar sintomas(erro)")
+	@DisplayName("CT001.02 - Test Listar sintomas(erro)")
 	void listaSintomas() {
 		sintoma = sintomaDAO.getSintoma().get(4);
 

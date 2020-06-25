@@ -36,12 +36,12 @@ class EspecialidadesDAOTest {
 	}
 
 	@Nested
-	@DisplayName("Cenario CT003 - Teste Listar Todas as Especialidade")
+	@DisplayName("Cenario CT001 - Teste Listar Todas as Especialidade")
 
 	class ListaEspecialidade {
 
 		@Test
-		@DisplayName("CT003.1")
+		@DisplayName("CT001.1 - Teste listar especialidade")
 		void listaAllEspecialidades() {
 			especielidades = especialidadeDAO.getEspecialidades();
 
@@ -55,7 +55,7 @@ class EspecialidadesDAOTest {
 	}
 	
 	@Test
-	@DisplayName("CT003.2 Teste Salvar uma Especialidade")
+	@DisplayName("CT001.2 Teste Salvar uma Especialidade")
 	void salvarEspecialidades() {
 		Especialidades esp = new Especialidades();
 		esp.setDescricao("Cardiologia Pediátrica");
