@@ -6,6 +6,7 @@ import java.util.Scanner;
 import br.com.saudefacil.exception.PacienteException;
 import br.com.saudefacil.exception.PessoaException;
 import br.com.saudefacil.exception.ProfissionalException;
+import br.com.saudefacil.view.ConsultaPacienteView;
 import br.com.saudefacil.view.PacienteView;
 import br.com.saudefacil.view.ProfissionalView;
 import br.com.saudefacil.view.RelatorioView;
@@ -13,9 +14,11 @@ import br.com.saudefacil.view.RelatorioView;
 public class AppMain {
 	
 	public static void main(String[] args) {
-			@SuppressWarnings("resource")
-			Scanner leTeclado = new Scanner(System.in);
-			RelatorioView relatorioView = new RelatorioView();
+		Scanner leTeclado = new Scanner(System.in);
+		
+		  RelatorioView relatorioView = new RelatorioView(); 
+		 
+		
 			int opcao = -1;
 							while(true) {
 					try {
@@ -28,13 +31,12 @@ public class AppMain {
 						case 2:
 							menuProfissional();
 							break;
-						case 3:
-							relatorioView.getRelatorio();
-							break;
+			            case 3: 
+				        	relatorioView.getRelatorio();
+				            break;
 						case 4:	
 							System.out.println("Até mais!");
 							System.exit(0);
-							
 						default:
 							System.out.println("Digite entre 1 a 4");
 						}
@@ -63,12 +65,14 @@ public class AppMain {
 	public static void menuPaciente() {
 		Scanner leTeclado = new Scanner(System.in);
 			PacienteView pacienteView = new PacienteView();
+			ConsultaPacienteView consultaPacienteView = new ConsultaPacienteView();
 			System.out.println("[1] Cadastrar paciente");
 			System.out.println("[2] Alterar cadastro de paciente");
 			System.out.println("[3] Desativar paciente");
 			System.out.println("[4] Lista de pacientes");
 			System.out.println("[5] Listar dados de um paciente");
-			System.out.println("[6] Retornar ao menu principal");
+			System.out.println("[6] Pesquisa de profissionais por sintoma");
+			System.out.println("[7] Retornar ao menu principal");
 			int opcao = leTeclado.nextInt();
 			switch(opcao) {
 				case 1:
@@ -87,9 +91,12 @@ public class AppMain {
 					pacienteView.getPaciente();
 					break;
 				case 6:
+					consultaPacienteView.getEspecialista();
+					break;
+				case 7:
 					break;
 				default:
-					System.out.println("Opção inválida. Escolha entre 1 e 6");
+					System.out.println("Opção inválida. Escolha entre 1 e 7");
 					menuPaciente();
 				}
 		}
