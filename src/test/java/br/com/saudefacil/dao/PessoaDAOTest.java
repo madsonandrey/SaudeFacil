@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
+import org.junit.jupiter.api.TestReporter;
 
 import br.com.saudefacil.models.Pessoa;
 
@@ -15,11 +17,17 @@ class PessoaDAOTest {
 	Pessoa pessoa;
 	PessoaDAO pessoaDAO;
 	
+	TestInfo testInfo;
+	TestReporter testReport;
+	
 	@BeforeEach
-	void init() {
+	void init(TestInfo testInfo, TestReporter testReporter) {
 		HibernatesUtil con;
 		pessoa = new Pessoa();
 		pessoaDAO = new PessoaDAO();
+		this.testInfo = testInfo;
+		this.testReport = testReporter;
+		System.out.println("=== Inicio de Método ====");
 	}
 	@Nested
 	@DisplayName("Cenario 001 - Teste Listar Pessoa")
@@ -29,6 +37,7 @@ class PessoaDAOTest {
 		@Test
 		@DisplayName("CT001.01 - Teste Listar Pessoa Pelo CPF")
 		void listaPessoaPeloCpf() {
+			testReport.publishEntry("Foi Executado: " + testInfo.getDisplayName());
 			pessoa = pessoaDAO.getPessoa("11111111111");
 			String resultadoAtual =	pessoa.getCpf();
 			String resultadoEsperado = "11111111111";
@@ -38,6 +47,7 @@ class PessoaDAOTest {
 		@Test
 		@DisplayName("CT001.02 - Teste Listar Pessoa Pelo Nome")
 		void listaPessoaPeloNome() {
+			testReport.publishEntry("Foi Executado: " + testInfo.getDisplayName());
 			pessoa = pessoaDAO.getPessoa("11111111111");
 			String resultadoAtual =	pessoa.getNome();
 			String resultadoEsperado = "luiza";
@@ -45,8 +55,9 @@ class PessoaDAOTest {
 			}
 		
 		@Test
-		@DisplayName("CT001.03 - Teste Listar Pessoa Pelo Rg")
+		@DisplayName("CT001.03 - Teste Listar Pessoa Pelo Rg (erro)")
 		void listaPessoaPeloRg() {
+			testReport.publishEntry("Foi Executado com erro: " + testInfo.getDisplayName());
 			pessoa = pessoaDAO.getPessoa("11111111111");
 			String resultadoAtual =	pessoa.getRg();
 			String resultadoEsperado = "1111112";

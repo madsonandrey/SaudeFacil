@@ -17,8 +17,6 @@ public class AppMain {
 		Scanner leTeclado = new Scanner(System.in);
 		
 		  RelatorioView relatorioView = new RelatorioView(); 
-		 
-		
 			int opcao = -1;
 							while(true) {
 					try {

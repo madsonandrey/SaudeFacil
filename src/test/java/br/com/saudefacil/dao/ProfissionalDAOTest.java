@@ -4,6 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
+import org.junit.jupiter.api.TestReporter;
 
 import br.com.saudefacil.models.Profissional;
 
@@ -12,11 +14,17 @@ class ProfissionalDAOTest {
 	Profissional profissional;
 	ProfissionalDAO profissionalDAO;
 	
+	TestInfo testInfo;
+	TestReporter testReport;
+	
 	@BeforeEach
-	void init(){
+	void init(TestInfo testInfo, TestReporter testReporter){
 		HibernatesUtil con;
 		profissional = new Profissional();
 		profissionalDAO = new ProfissionalDAO();
+		this.testInfo = testInfo;
+		this.testReport = testReporter;
+		System.out.println("=== Inicio de Método ====");
 	}
 	@Nested
 	@DisplayName("Cenario 001 - Teste Listar Profissional")
@@ -25,6 +33,7 @@ class ProfissionalDAOTest {
 		@Test
 		@DisplayName("CT001.01 - Test Listar Profissional pelo CPF")
 		void listaProfissionalPeloCpf() {
+			testReport.publishEntry("Foi Executado: " + testInfo.getDisplayName());
 			profissional = profissionalDAO.getProfissional("11111111111");
 			String resultadoAtual = profissional.getPessoa().getCpf();
 			String resultadoEsperado = "11111111111";
@@ -32,8 +41,9 @@ class ProfissionalDAOTest {
 			}
 		
 		@Test
-		@DisplayName("CT001.02 - Test Listar Profissional pelo Nome")
+		@DisplayName("CT001.02 - Test Listar Profissional pelo Nome(erro)")
 		void listaProfissionalPeloNome() {
+			testReport.publishEntry("Foi Executado: " + testInfo.getDisplayName());
 			profissional = profissionalDAO.getProfissional("11111111111");
 			String resultadoAtual = profissional.getPessoa().getNome();
 			String resultadoEsperado = "luiz";
@@ -43,6 +53,7 @@ class ProfissionalDAOTest {
 		@Test
 		@DisplayName("CT001.03 - Test Listar Profissional pela Credencial")
 		void listaProfissionalPelaCredencial() {
+			testReport.publishEntry("Foi Executado: " + testInfo.getDisplayName());
 			profissional = profissionalDAO.getProfissional("11111111111");
 			String resultadoAtual = profissional.getCredencial();
 			String resultadoEsperado = "CRA2020";

@@ -5,6 +5,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
+import org.junit.jupiter.api.TestReporter;
 
 import br.com.saudefacil.models.Paciente;
 import br.com.saudefacil.view.PacienteView;
@@ -12,14 +14,19 @@ class PacienteDAOTest {
 	
 	Paciente paciente;
 	PacienteDAO pacienteDAO;
-	PacienteView pacienteView;
+
+	
+	TestInfo testInfo;
+	TestReporter testReport;
 	
 	@BeforeEach
-	void init() {
+	void init(TestInfo testInfo, TestReporter testReporter) {
 		HibernatesUtil con;
 		paciente = new Paciente();
 		pacienteDAO = new PacienteDAO();
-		pacienteView = new PacienteView();
+		this.testInfo = testInfo;
+		this.testReport = testReporter;
+		System.out.println("=== Inicio de MÈtodo ====");
 	}
 	
 	@Nested
@@ -30,27 +37,30 @@ class PacienteDAOTest {
 		@DisplayName("CT001.01 - Teste Listar Paciente Pelo Cpf")
 		
 		void listarPacientePeloCpf() {
-			paciente = pacienteDAO.getPaciente("10838068455");
+			testReport.publishEntry("Foi Executado: " + testInfo.getDisplayName());
+			paciente = pacienteDAO.getPaciente("22233344455");
 			String resultadoAtual = paciente.getPessoa().getCpf();
-			String resultadoEsperado = "10838068455";
-			assertEquals(resultadoEsperado, resultadoAtual, "CPF n√£o confere com o cadastrado");
+			String resultadoEsperado = "22233344455";
+			assertEquals(resultadoEsperado, resultadoAtual, "CPF n„o confere com o cadastrado");
 		}
 		
 		@Test
 		@DisplayName("CT001.02 - Teste Listar Paciente Pelo Rg")
 		void listarPacientePeloRg() {
-			paciente = pacienteDAO.getPaciente("10838068455");
+			testReport.publishEntry("Foi Executado: " + testInfo.getDisplayName());
+			paciente = pacienteDAO.getPaciente("22233344455");
 			String resultadoAtual = paciente.getPessoa().getRg();
-			String resultadoEsperado = "8730740";
-			assertEquals(resultadoEsperado, resultadoAtual, "CPF n√£o confere com o cadastrado");
+			String resultadoEsperado = "1231231";
+			assertEquals(resultadoEsperado, resultadoAtual, "CPF n„o confere com o cadastrado");
 		}
 		@Test
-		@DisplayName("CT001.03 - Teste Listar Paciente Pelo Nome")
+		@DisplayName("CT001.03 - Teste Listar Paciente Pelo Nome(erro)")
 		void listarPacientePeloNome() {
-			paciente = pacienteDAO.getPaciente("10838068455");
+			testReport.publishEntry("Foi Executado com erro: " + testInfo.getDisplayName());
+			paciente = pacienteDAO.getPaciente("22233344455");
 			String resultadoAtual = paciente.getPessoa().getNome();
-			String resultadoEsperado = "m√©dson";
-			assertEquals(resultadoEsperado, resultadoAtual, "Nome n√£o confere com o cadastrado");
+			String resultadoEsperado = "MAURO LIMA";
+			assertEquals(resultadoEsperado, resultadoAtual, "Nome n„o confere com o cadastrado");
 		}
 	}
 }
