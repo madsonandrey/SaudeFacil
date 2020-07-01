@@ -46,7 +46,7 @@ class SintomaDAOTest {
 
 			String resultadoAtual = sintoma.getDescricao();
 			String resultadoEsperado = "Tosse";
-			assertEquals(resultadoEsperado, resultadoAtual, "Sintoma n„o cadastrado");
+			assertEquals(resultadoEsperado, resultadoAtual, "Sintoma n√£o cadastrado");
 		}
 	}
 
@@ -58,7 +58,7 @@ class SintomaDAOTest {
 
 		String resultadoAtual = sintoma.getDescricao();
 		String resultadoEsperado = "Gripe";
-		assertEquals(resultadoEsperado, resultadoAtual, "Sintoma n„o cadastrado");
+		assertEquals(resultadoEsperado, resultadoAtual, "Sintoma n√£o cadastrado");
 	}
 	
 	@Test
