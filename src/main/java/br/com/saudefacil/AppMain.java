@@ -11,9 +11,17 @@ import br.com.saudefacil.view.PacienteView;
 import br.com.saudefacil.view.ProfissionalView;
 import br.com.saudefacil.view.RelatorioView;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Configuration;
+
+@SpringBootApplication
+@Configuration
 public class AppMain {
 	
 	public static void main(String[] args) {
+		SpringApplication.run(AppMain.class, args);
+		
 		Scanner leTeclado = new Scanner(System.in);
 		
 		  RelatorioView relatorioView = new RelatorioView(); 

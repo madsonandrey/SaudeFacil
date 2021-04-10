@@ -5,14 +5,31 @@ import java.util.List;
 import br.com.saudefacil.dao.PessoaDAO;
 import br.com.saudefacil.exception.PessoaException;
 import br.com.saudefacil.models.Pessoa;
+import java.net.URI;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+@RestController
+@RequestMapping("/api/pessoas")
 public class PessoaController {
+	
+	
 	private static final int TAMANHO_MAXIMO_DO_NOME = 200;
 	private static final int TAMANHO_CPF = 11;
 	private static final int TAMANHO_RG = 7;
 	
 	private PessoaDAO pessoaDAO = new PessoaDAO();
 	
+		
 	public void create(Pessoa pessoa) {
 		Pessoa pessoaAuxiliar = pessoaDAO.getPessoa(pessoa.getCpf());
 		if (pessoaAuxiliar != null) {
@@ -58,6 +75,37 @@ public class PessoaController {
 				&& !pessoa.getTipoSanguineo().equals("o+") && !pessoa.getTipoSanguineo().equals("o-")) {
 			throw new PessoaException("O tipo sanguíneo deve ser 'a+', 'a-', 'b+', 'b-', 'ab+', 'ab-', o+' 'o-'");
 		}
+	}
+	
+	@PostMapping(path = "/new")
+	public ResponseEntity<Pessoa> cadastrar(@RequestBody Pessoa pessoa, BindingResult result) {
+		//Pessoa response = new Pessoa();
+
+		//if (result.hasErrors()) {
+			//result.getAllErrors().forEach(error -> response.getErrors().add(error.getDefaultMessage()));
+			//return ResponseEntity.badRequest().body(response);
+		//}
+
+		this.create(pessoa);
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{cpf}").buildAndExpand(pessoa.getCpf())
+				.toUri();
+		//response.setData(viagemSalva);
+		return ResponseEntity.created(location).body(pessoa);
+	}
+
+	@GetMapping
+	public ResponseEntity<List<Pessoa>> listar() {
+		List<Pessoa> pessoas = this.getPessoas();
+		return ResponseEntity.status(HttpStatus.OK).body(pessoas);
+	}
+
+	@GetMapping(path = "/{cpf}")
+	public ResponseEntity<Pessoa> buscar(@PathVariable("cpf") String cpf) {
+  
+		Pessoa pessoa = this.getPessoa(cpf);
+		//Pessoa response = new Response<Viagem>();
+		//response.setData(viagem);
+		return ResponseEntity.status(HttpStatus.OK).body(pessoa);
 	}
 	
 }

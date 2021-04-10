@@ -25,10 +25,10 @@ public class HibernatesUtil {
 			try {
 				Configuration configuration = new Configuration();
 				Properties settings = new Properties();
-				settings.put(Environment.DRIVER, "com.mysql.jdbc.Driver");
-				settings.put(Environment.URL, "jdbc:mysql://mysql669.umbler.com:41890/bd_saude_v2");
-				settings.put(Environment.USER, "unit_squadbd"); 
-				settings.put(Environment.PASS, "2020squadbd2020");
+				settings.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
+				settings.put(Environment.URL, "jdbc:mysql://localhost:3306/saude_facil?useTimezone=true&serverTimezone=UTC");
+				settings.put(Environment.USER, "root"); 
+				settings.put(Environment.PASS, "root");
 				settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQLDialect"); 
 				settings.put(Environment.SHOW_SQL, "false");
 				settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
